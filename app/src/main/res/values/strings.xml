@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IMT Calculator+</string>
+    <string name="age">Вік</string>
+    <string name="height">Зріст</string>
+    <string name="weight">Вага</string>
+    <string name="button1">Розрахувати</string>
+</resources>

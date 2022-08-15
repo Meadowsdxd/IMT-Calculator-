@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back1test"
+        android:contentDescription="@string/app_name">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500sp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="27sp"
+                android:layout_marginTop="57sp"
+                android:text="@string/age"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="100sp"
+                android:layout_height="45sp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="66sp"
+                android:layout_marginTop="52sp"
+                android:layout_toEndOf="@+id/textView20"
+                android:ems="10"
+                android:inputType="number"
+                android:minHeight="48sp"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="128sp"
+                android:layout_toEndOf="@+id/height" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView20"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="29sp"
+                android:layout_marginTop="35sp"
+                android:text="@string/height"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/height"
+                android:layout_width="100sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/age"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="21dp"
+                android:layout_toEndOf="@+id/textView21"
+                android:ems="10"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="100sp"
+                android:layout_height="45sp"
+                android:layout_below="@+id/height"
+                android:layout_marginStart="49sp"
+                android:layout_marginTop="22sp"
+                android:layout_toEndOf="@+id/textView22"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="24sp"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView21"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="29dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/weight"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinner2"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="44dp"
+                android:layout_toEndOf="@+id/weight" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="155sp"
+                android:layout_height="48dp"
+                android:layout_below="@+id/weight"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="23dp"
+
+                android:onClick="onClickAdd"
+                android:text="@string/button1"
+                android:visibility="invisible" />
+
+            <RadioGroup
+                android:layout_width="109dp"
+                android:layout_height="55sp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="47dp"
+                android:layout_toEndOf="@+id/age"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="0dp"
+                    android:layout_height="45sp"
+                    android:layout_weight="1"
+                    android:button="@drawable/girltest"
+                    android:buttonTintMode="src_atop" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="1sp"
+                    android:layout_height="45sp"
+                    android:layout_weight="1"
+                    android:button="@drawable/mentest"
+                    android:buttonTintMode="src_atop" />
+
+            </RadioGroup>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="35sp"
+                app:srcCompat="@drawable/scaletest" />
+
+            <com.example.imtcalculator.view.WeightView
+                android:id="@+id/indicator"
+                android:layout_width="410dp"
+                android:layout_height="189dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="363dp"
+                android:layout_marginEnd="1dp"
+                android:text="FUEL"
+                app:color="#77f577"
+                app:fontName="digital-7 (mono italic).ttf"
+                app:markRange="5"
+                app:maxValue="20"
+                app:textColor="#ffb066"
+                app:value="15" />
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="180sp"
+                android:layout_height="50sp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="121dp"
+                android:layout_marginTop="481dp"
+                android:textColor="#000000" />
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>
