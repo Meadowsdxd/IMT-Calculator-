@@ -4,4 +4,12 @@
     <string name="height">Зріст</string>
     <string name="weight">Вага</string>
     <string name="button1">Розрахувати</string>
+    <string name="underweight">16 та менше Виражений дефіцит маси тіла</string>
+    <string name="Insufficient">16-18,5 Недостатня (дефіцит) маса тіла</string>
+    <string name="Norm">18,5-25 Норма</string>
+    <string name="preobesity">25-30 Надмірна маса тіла (запобігання)</string>
+    <string name="firstDegree">30-35 Ожиріння першого ступеня</string>
+    <string name="secondDegree">35-40 Ожиріння другого ступеня</string>
+    <string name="thirdDegree">40 і більше Ожиріння третього ступеня (морбідне)</string>
+
 </resources>

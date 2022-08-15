@@ -3,12 +3,25 @@ package com.example.imtcalculator;
 public class Calculation implements FormulaLourenca {
     @Override
     public double FLourenca(double weight, double height,int age,boolean sex) {
-       /* double difference1=(height-100)-(height-150)/2;
-        double difference=weight-difference1;*/
         double difference=0;
+
         if(sex){
-            difference=(weight/Math.pow(height,2))*10000;
-        }else{difference=((weight+5)/Math.pow(height,2))*10000;}
+            if(age<18){
+            difference=((weight+weight*0.5)/Math.pow(height,2))*10000;}
+            else
+                if (age>18&&age<=50){difference=((weight)/Math.pow(height,2))*10000;}
+                else
+                    if(age>50&&age<=70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}else if(age>70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}
+        }else{
+            if(age<18){
+                difference=((weight+10+weight*0.6)/Math.pow(height,2))*10000;}
+            else
+                if(age>18&&age<=50){difference=((weight+10)/Math.pow(height,2))*10000;}
+                else
+                    if(age>50&&age<=70){difference=((weight+10+weight*0.4)/Math.pow(height,2))*10000;}
+                else
+                    if(age>70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}
+        }
         return difference;
     }
 }

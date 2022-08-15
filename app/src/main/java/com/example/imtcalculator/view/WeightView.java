@@ -5,11 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-
-import com.example.imtcalculator.Transfer;
 
 public class WeightView extends View {
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -50,7 +47,7 @@ public class WeightView extends View {
         canvas.translate(1.f, -1.f);
 
         int maxValue = 40;
-        Transfer transfer=new Transfer();
+
     if(value<=16) {//Выраженный дефицит массы тела
       maxValue = 17 * 10;
     }else
@@ -101,12 +98,11 @@ public class WeightView extends View {
         paint.setColor(0xFF000000);
         paint.setStrokeWidth(0.02f);
 
+
         canvas.drawLine(0.01f, 0, 0, 1f, paint);
         canvas.drawLine(-0.01f, 0, 0, 1f, paint);
 
-        paint.setStyle(Paint.Style.FILL);
-        paint.setColor(0xff88ff99);
-        canvas.drawCircle(0f, 0f, .05f, paint);
+
 
         canvas.restore();
 

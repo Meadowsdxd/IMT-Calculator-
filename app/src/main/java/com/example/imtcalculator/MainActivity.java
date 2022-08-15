@@ -3,6 +3,7 @@ package com.example.imtcalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -22,8 +23,10 @@ public class MainActivity extends AppCompatActivity {
 Button add;
 EditText age,weight,height;
 private  WeightView weightView;
-TextView result; RadioButton men,girl;
+TextView result,underweight,Insufficient,Norm,preobesity,firstDegree,secondDegree,thirdDegree;
+RadioButton men,girl;
 boolean sexCheck;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +37,16 @@ boolean sexCheck;
         height = findViewById(R.id.height);
         weightView = (WeightView) findViewById(R.id.indicator);
         result=findViewById(R.id.result);
+        underweight=findViewById(R.id.underweight);
+        Insufficient=findViewById(R.id.Insufficient);
+        Norm=findViewById(R.id.Norm);
+        preobesity=findViewById(R.id.preobesity);
+        firstDegree=findViewById(R.id.firstDegree);
+        secondDegree=findViewById(R.id.secondDegree);
+        thirdDegree=findViewById(R.id.thirdDegree);
         men=findViewById(R.id.men);
         girl=findViewById(R.id.girl);
+
         men.setOnClickListener(radioButtonClickListener);
         girl.setOnClickListener(radioButtonClickListener);
         age.addTextChangedListener(next);
@@ -70,6 +81,84 @@ Calculation calculation=new Calculation();
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
                     result.setText(String.format("%.1f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck))));
 
+
+                        iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
+                        if(iniResult==0){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }else
+                        if(iniResult<16){
+                            underweight.setTextColor(Color.parseColor("#FF03A9F4"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }else
+                        if(iniResult>16&&iniResult<=18.5){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF03A9F4"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }else
+                        if(iniResult>18.5&&iniResult<=25){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF03A9F4"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }else
+                        if(iniResult>25&&iniResult<=30){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF03A9F4"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }
+                        else
+                        if(iniResult>30&&iniResult<=35){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF03A9F4"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }
+                        else
+                        if(iniResult>35&&iniResult<=40){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF03A9F4"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF000000"));
+                        }
+                        else
+                        if(iniResult>40){
+                            underweight.setTextColor(Color.parseColor("#FF000000"));
+                            Insufficient.setTextColor(Color.parseColor("#FF000000"));
+                            Norm.setTextColor(Color.parseColor("#FF000000"));
+                            preobesity.setTextColor(Color.parseColor("#FF000000"));
+                            firstDegree.setTextColor(Color.parseColor("#FF000000"));
+                            secondDegree.setTextColor(Color.parseColor("#FF000000"));
+                            thirdDegree.setTextColor(Color.parseColor("#FF03A9F4"));
+                        }
+
                 }
             }catch (NumberFormatException e){}
 
@@ -89,6 +178,13 @@ Calculation calculation=new Calculation();
 
         }
 };
+
+    double iniResult=0;
+    private void Resultation(){
+
+
+
+    }
 }
 
 
