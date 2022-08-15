@@ -48,6 +48,7 @@ Calculation calculation=new Calculation();
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()))));
 
                     result.setText(String.valueOf(String.format("%.2f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()))))));
+                ///111111
                 }
             }catch (NumberFormatException e){}
 
