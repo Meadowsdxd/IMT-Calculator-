@@ -9,6 +9,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 Button add;
 EditText age,weight,height;
 private  WeightView weightView;
-TextView result;
-
+TextView result; RadioButton men,girl;
+boolean sexCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,23 +34,42 @@ TextView result;
         height = findViewById(R.id.height);
         weightView = (WeightView) findViewById(R.id.indicator);
         result=findViewById(R.id.result);
-        Transfer transfer = new Transfer();
+        men=findViewById(R.id.men);
+        girl=findViewById(R.id.girl);
+        men.setOnClickListener(radioButtonClickListener);
+        girl.setOnClickListener(radioButtonClickListener);
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
+
 }
+    View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            RadioButton rb = (RadioButton)v;
+            switch (rb.getId()) {
+                case R.id.men: {sexCheck=true;}
+                    break;
+                case R.id.girl: {sexCheck=false;}
+                    break;
+
+
+                default:
+                    break;
+            }
+        }
+    };
 Calculation calculation=new Calculation();
     private TextWatcher next=new TextWatcher() {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
            // текст только что изменили
             try {
-                if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))) {weightView.Accept(0);
+                if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))){weightView.Accept(0);
                 }
-                else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()))));
+                else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
+                    result.setText(String.format("%.1f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck))));
 
-                    result.setText(String.format("%.2f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString())))));
-            
                 }
             }catch (NumberFormatException e){}
 
