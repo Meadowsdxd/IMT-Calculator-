@@ -7,7 +7,7 @@ public class Calculation implements FormulaLourenca {
 
         if(sex){
             if(age<18){
-            difference=((weight+weight*0.5)/Math.pow(height,2))*10000;}
+            difference=((weight+weight*0.3)/Math.pow(height,2))*10000;}
             else
                 if (age>18&&age<=50){difference=((weight)/Math.pow(height,2))*10000;}
                 else
