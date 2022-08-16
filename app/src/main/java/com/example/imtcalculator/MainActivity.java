@@ -63,8 +63,6 @@ boolean sexCheck;
                     break;
                 case R.id.girl: {sexCheck=false;}
                     break;
-
-
                 default:
                     break;
             }
@@ -77,6 +75,7 @@ Calculation calculation=new Calculation();
            // текст только что изменили
             try {
                 if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))){weightView.Accept(0);
+                    result.setText("");
                 }
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
                     result.setText(String.format("%.1f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck))));
