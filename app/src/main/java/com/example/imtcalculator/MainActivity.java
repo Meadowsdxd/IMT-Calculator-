@@ -1,6 +1,9 @@
 package com.example.imtcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,21 +20,31 @@ import android.widget.Toast;
 
 import com.example.imtcalculator.view.WeightView;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-Button add;
+/*Button add;
 EditText age,weight,height;
 private  WeightView weightView;
 TextView result,underweight,Insufficient,Norm,preobesity,firstDegree,secondDegree,thirdDegree;
 RadioButton men,girl;
-boolean sexCheck;
-
+boolean sexCheck;*/
+private ViewPager pager;
+    private PagerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        add = findViewById(R.id.button);
+        List<Fragment> list=new ArrayList<>();
+        list.add(new MainFragment());
+        list.add(new StepsFragment());
+
+        pager=findViewById(R.id.pager);
+        adapter=new Slider(getSupportFragmentManager(),list);
+        pager.setAdapter(adapter);
+     /*   add = findViewById(R.id.button);
         age = findViewById(R.id.age);
         weight = findViewById(R.id.weight);
         height = findViewById(R.id.height);
@@ -51,10 +64,10 @@ boolean sexCheck;
         girl.setOnClickListener(radioButtonClickListener);
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
-        weight.addTextChangedListener(next);
+        weight.addTextChangedListener(next);*/
 
 }
-    View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
+/*    View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             RadioButton rb = (RadioButton)v;
@@ -178,12 +191,8 @@ Calculation calculation=new Calculation();
         }
 };
 
-    double iniResult=0;
-    private void Resultation(){
+    double iniResult=0;*/
 
-
-
-    }
 }
 
 
