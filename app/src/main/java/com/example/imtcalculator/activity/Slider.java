@@ -1,4 +1,4 @@
-package com.example.sunpanel;
+package com.example.imtcalculator.activity;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

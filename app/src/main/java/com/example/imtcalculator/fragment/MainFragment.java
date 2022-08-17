@@ -1,4 +1,4 @@
-package com.example.imtcalculator;
+package com.example.imtcalculator.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,11 +10,12 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.example.imtcalculator.R;
+import com.example.imtcalculator.more.Calculation;
 import com.example.imtcalculator.view.WeightView;
 
 
