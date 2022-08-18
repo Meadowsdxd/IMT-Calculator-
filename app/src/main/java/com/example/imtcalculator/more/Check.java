@@ -24,11 +24,4 @@
                     }
                 return trus;
             }
-            public String Regu(String in){
-                String out;
-                int index = in.indexOf('.');
-                out = in.substring(0, index+3);
-                return out;
-            }
-
-        }
+                  }
