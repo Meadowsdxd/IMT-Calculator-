@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IMTCalculator">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.HelperActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

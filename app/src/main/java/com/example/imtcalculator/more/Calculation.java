@@ -11,14 +11,16 @@ public class Calculation implements FormulaLourenca {
             else
                 if (age>=18&&age<=50){difference=((weight)/Math.pow(height,2))*10000;}
                 else
-                    if(age>50&&age<=70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}else if(age>70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}
+                    if(age>50&&age<=70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}
+                    else
+                        if(age>70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}
         }else{
             if(age<18){
                 difference=((weight+10+weight*0.6)/Math.pow(height,2))*10000;}
             else
-                if(age>18&&age<=50){difference=((weight+10)/Math.pow(height,2))*10000;}
+                if(age>18&&age<=50){difference=((weight+2)/Math.pow(height,2))*10000;}
                 else
-                    if(age>50&&age<=70){difference=((weight+10+weight*0.4)/Math.pow(height,2))*10000;}
+                    if(age>50&&age<=70){difference=((weight+2+weight*0.4)/Math.pow(height,2))*10000;}
                 else
                     if(age>70){difference=((weight+weight*0.4)/Math.pow(height,2))*10000;}
         }

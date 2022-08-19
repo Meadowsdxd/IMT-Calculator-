@@ -1,5 +1,6 @@
 package com.example.imtcalculator.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -10,11 +11,13 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.imtcalculator.R;
+import com.example.imtcalculator.activity.HelperActivity;
 import com.example.imtcalculator.more.Calculation;
 import com.example.imtcalculator.view.WeightView;
 
@@ -25,6 +28,7 @@ public class MainFragment extends Fragment {
     EditText age,weight,height;
     private  WeightView weightView;
     TextView result,underweight,Insufficient,Norm,preobesity,firstDegree,secondDegree,thirdDegree;
+    Button nextPage;
     RadioButton men,girl;
     boolean sexCheck;
     double iniResult=0;
@@ -46,12 +50,19 @@ public class MainFragment extends Fragment {
         thirdDegree=view.findViewById(R.id.thirdDegree);
         men=view.findViewById(R.id.men);
         girl=view.findViewById(R.id.girl);
-
+    nextPage=view.findViewById(R.id.button);
         men.setOnClickListener(radioButtonClickListener);
         girl.setOnClickListener(radioButtonClickListener);
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(),HelperActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
     View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
@@ -177,4 +188,5 @@ public class MainFragment extends Fragment {
 
         }
     };
+
 }
