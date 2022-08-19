@@ -28,7 +28,8 @@ public class RecyclerFragment extends Fragment {
         View view = inflater.inflate(R.layout.recycler_view_fragment, container, false);
         Info();
         RecyclerView recyclerView=view.findViewById(R.id.recycler_view);
-    
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new RecyclerViewAdapter(list));
 
         return view;
     }
