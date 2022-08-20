@@ -1,19 +1,12 @@
 package com.example.imtcalculator.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
 import com.example.imtcalculator.R;
-import com.example.imtcalculator.fragment.MainFragment;
-import com.example.imtcalculator.fragment.RecyclerFragment;
-import com.example.imtcalculator.fragment.StepsFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HelperActivity extends AppCompatActivity{
     @Override
