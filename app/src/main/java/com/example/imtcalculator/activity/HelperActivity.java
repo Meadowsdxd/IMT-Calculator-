@@ -18,13 +18,13 @@ public class HelperActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         MyCardData[] myCardData = new MyCardData[]{
-                new MyCardData("Avengers","2019 film",R.drawable.men),
-                new MyCardData("Venom","2018 film",R.drawable.men),
-                new MyCardData("Batman Begins","2005 film",R.drawable.men),
-                new MyCardData("Jumanji","2019 film",R.drawable.men),
-                new MyCardData("Good Deeds","2012 film",R.drawable.men),
-                new MyCardData("Hulk","2003 film",R.drawable.men),
-                new MyCardData("Avatar","2009 film",R.drawable.men),
+                new MyCardData("Зхуднення 1","Зхуднення 1",R.drawable.men),
+                new MyCardData("Зхуднення 2","Зхуднення 1",R.drawable.men),
+                new MyCardData("Зхуднення 3","Зхуднення 1",R.drawable.men),
+                new MyCardData("Зхуднення 4","Зхуднення 1",R.drawable.men),
+                new MyCardData("Зхуднення 5","Зхуднення 1",R.drawable.men),
+                new MyCardData("Зхуднення 6" ,"Зхуднення 1",R.drawable.men),
+                new MyCardData("Зхуднення 7","Зхуднення 1",R.drawable.men),
         };
 
         MyCardAdapter myCardAdapter = new MyCardAdapter(myCardData,HelperActivity.this);
