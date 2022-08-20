@@ -6,6 +6,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.imtcalculator.R;
+import com.example.imtcalculator.more.Card;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +54,7 @@ public class RecyclerFragment extends Fragment {
 
         }
 
+
         @NonNull
         @Override
         public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -70,12 +73,18 @@ public class RecyclerFragment extends Fragment {
         }
     }
    private List<String> list;
+     List<Card> Clist;
     private void Info(){
-       list=new ArrayList<>();
-        list.add("1");
-        list.add("1");
-        list.add("1");
-        list.add("1");
-        list.add("1");
+        list=new ArrayList<>();
+        Clist=new ArrayList<>();
+     Clist.add(new Card(1,"1"));
+        Clist.add(new Card(2,"2"));
+        for (int i=1;i<Clist.size();i++) {
+
+
+        }
+
+
+
     }
 }
