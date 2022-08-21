@@ -1,0 +1,15 @@
+
+<resources>
+    <string name="app_name">Calculatrice IMT+</string>
+    <string name="age">Âge</string>
+    <string name="height">Hauteur</string>
+    <string name="weight">Poids</string>
+    <string name="button1">Calculer</string>
+    <string name="underweight">16 ans et moins Grave insuffisance pondérale</string>
+    <string name="Insufficient">16-18.5 Poids corporel insuffisant (déficit)</string>
+    <string name="Norm">Norme 18,5-25</string>
+    <string name="preobesity">25-30 Surpoids (prévention)</string>
+    <string name="firstDegree">30-35 Obésité du premier degré</string>
+    <string name="secondDegree">35-40 Obésité du second degré</string>
+    <string name="thirdDegree">40 ans et plus Obésité du troisième degré (morbide)</string>
+</resources>

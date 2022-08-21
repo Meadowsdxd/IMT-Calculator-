@@ -11,7 +11,6 @@
     <string name="firstDegree">30-35 Ожиріння першого ступеня</string>
     <string name="secondDegree">35-40 Ожиріння другого ступеня</string>
     <string name="thirdDegree">40 і більше Ожиріння третього ступеня (морбідне)</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

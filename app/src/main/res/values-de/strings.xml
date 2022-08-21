@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">IMT-Rechner+</string>
+    <string name="age">Alter</string>
+    <string name="height">Höhe</string>
+    <string name="weight">Gewicht</string>
+    <string name="button1">Berechnen</string>
+    <string name="underweight">16 und darunter Starkes Untergewicht</string>
+    <string name="Insufficient">16-18,5 Unzureichendes (Defizit-)Körpergewicht</string>
+    <string name="Norm">18.5-25 Norm</string>
+    <string name="preobesity">25-30 Übergewicht (Vorbeugung)</string>
+    <string name="firstDegree">30-35 Fettleibigkeit ersten Grades</string>
+    <string name="secondDegree">35-40 Fettleibigkeit zweiten Grades</string>
+    <string name="thirdDegree">40 und älter Fettleibigkeit dritten Grades (krankhaft)</string>
+
+
+</resources>
