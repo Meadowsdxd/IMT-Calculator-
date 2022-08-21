@@ -18,10 +18,10 @@ public class HelperActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         MyCardData[] myCardData = new MyCardData[]{
-                new MyCardData("Зхуднення 1","Зхуднення 1",R.drawable.men),
-                new MyCardData("Зхуднення 2","Зхуднення 1",R.drawable.men),
-                new MyCardData("Зхуднення 3","Зхуднення 1",R.drawable.men),
-                new MyCardData("Зхуднення 4","Зхуднення 1",R.drawable.men),
+                new MyCardData("WowBody","Прагнення до здорового, красивого та яскравого способу життя. Тренуй тіло, впроваджуй нові звички, готуй корисну страву та харчуйся із задоволенням. Будь WOW!",R.drawable.wowbody),
+                new MyCardData("Зхуднення 2","Зхуднення 2",R.drawable.men),
+                new MyCardData("Зхуднення 3","Зхуднення 3",R.drawable.men),
+                new MyCardData("Зхуднення 4","Зхуднення 4",R.drawable.men),
                 new MyCardData("Зхуднення 5","Зхуднення 1",R.drawable.men),
                 new MyCardData("Зхуднення 6" ,"Зхуднення 1",R.drawable.men),
                 new MyCardData("Зхуднення 7","Зхуднення 1",R.drawable.men),
