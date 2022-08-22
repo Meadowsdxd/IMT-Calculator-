@@ -60,6 +60,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),HelperActivity.class);
+                intent.putExtra("result", Double.parseDouble(result.getText().toString()));
                 startActivity(intent);
             }
         });
