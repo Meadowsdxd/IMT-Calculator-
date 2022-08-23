@@ -59,9 +59,11 @@ public class MainFragment extends Fragment {
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent=new Intent(getContext(),HelperActivity.class);
-                intent.putExtra("result", Double.parseDouble(result.getText().toString()));
+                intent.putExtra("result", Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
                 startActivity(intent);
+
             }
         });
         return view;
