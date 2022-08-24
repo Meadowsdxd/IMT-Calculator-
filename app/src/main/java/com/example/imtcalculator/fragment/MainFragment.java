@@ -69,7 +69,7 @@ public class MainFragment extends Fragment {
                 Dialog dialog=new Dialog();
         resultIni=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
     dialog.setReuslt(resultIni);
-    dialog.reuslt=resultIni;
+
              DialogFragment dlg1;
                 dlg1 = new Dialog();
                 dlg1.show(getFragmentManager(), "dlg1");

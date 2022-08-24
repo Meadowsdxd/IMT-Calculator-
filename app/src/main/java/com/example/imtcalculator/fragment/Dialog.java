@@ -18,7 +18,7 @@ import com.example.imtcalculator.activity.HelperActivity;
 public class Dialog extends DialogFragment implements View.OnClickListener {
 
     final String LOG_TAG = "myLogs";
-double reuslt=0;
+private double reuslt=0;
 
     public double getReuslt() {
         return reuslt;
@@ -46,7 +46,7 @@ double reuslt=0;
         super.onDismiss(dialog);
 
         Intent intent=new Intent(getContext(),HelperActivity.class);
-        intent.putExtra("result",reuslt);
+        intent.putExtra("result",getReuslt());
 
         startActivity(intent);
     }
