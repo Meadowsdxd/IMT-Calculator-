@@ -26,8 +26,9 @@ public class HelperActivity extends AppCompatActivity{
                 new MyCardData("https://www.youtube.com/watch?v=4s3QStdR-HU", "КАК ПИТАТЬСЯ, ЧТОБЫ НАБРАТЬ МЫШЕЧНУЮ МАССУ! 7 ЗАКОНОВ", R.drawable.img),
                 new MyCardData("https://www.youtube.com/watch?v=k9nlPis5u7s", "10 ГЛАВНЫХ ОШИБОК ПРИ НАБОРЕ МАССЫ", R.drawable.img_3),
                 new MyCardData("https://www.youtube.com/watch?v=hduA_n3_qMc", "Как похудеть на 30 кг. Моя история похудения. Жиросжигатель", R.drawable.img_3),
-                new MyCardData("Зхуднення 4", "Набор 4", R.drawable.men),
-                new MyCardData("Зхуднення 5", "Набор 1", R.drawable.men),
+                new MyCardData("https://fitness.org.ua/iak-shvidko-nabrati-vagy-prikladi-menu-prodyktiv-i-vprav/", "Ви завжди вважали себе занадто худим? Шкіра та кістки? В той час, коли більшості необхідно скинути вагу, набрати його може бути дуже складним завданням.\n"+
+                        "Хочете дізнатися як швидко набрати вагу без шкоди для здоров’я? У цій статті ми розповімо як збільшити масу тіла за короткий термін.", R.drawable.img_5),
+                new MyCardData("https://bodia.online/subcategory/sportivni-zali-sektsiyi/trenazhernii-zal-ta-fitnes", "ТРЕНАЖЕРНІ ЗАЛИ ТА ФІТНЕС КЛУБИ В УКРАЇНІ", R.drawable.img_4),
                 new MyCardData("Зхуднення 6", "Набор 1", R.drawable.men),
                 new MyCardData("Зхуднення 7", "Набор 1", R.drawable.men),
         };}else
