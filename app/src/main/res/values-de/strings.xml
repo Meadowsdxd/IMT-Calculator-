@@ -11,6 +11,10 @@
     <string name="firstDegree">30-35 Fettleibigkeit ersten Grades</string>
     <string name="secondDegree">35-40 Fettleibigkeit zweiten Grades</string>
     <string name="thirdDegree">40 und älter Fettleibigkeit dritten Grades (krankhaft)</string>
-
+    <string name="dialog_1">Dialog </string>
+    <string name="message_text">Text of your message</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="maybe">Maybe</string>
 
 </resources>

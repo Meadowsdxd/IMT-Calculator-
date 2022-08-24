@@ -11,6 +11,10 @@
     <string name="firstDegree">30-35 Ожиріння першого ступеня</string>
     <string name="secondDegree">35-40 Ожиріння другого ступеня</string>
     <string name="thirdDegree">40 і більше Ожиріння третього ступеня (морбідне)</string>
-
+    <string name="dialog_1">Dialog </string>
+    <string name="message_text">Text of your message</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="maybe">Maybe</string>
 
 </resources>

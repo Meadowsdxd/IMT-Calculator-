@@ -1,9 +1,13 @@
 package com.example.imtcalculator.fragment;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -15,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.activity.HelperActivity;
@@ -32,6 +37,8 @@ public class MainFragment extends Fragment {
     RadioButton men,girl;
     boolean sexCheck;
     double iniResult=0;
+    double resultIni=0;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,15 +66,19 @@ public class MainFragment extends Fragment {
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent=new Intent(getContext(),HelperActivity.class);
-                intent.putExtra("result", Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
-                startActivity(intent);
+                Dialog dialog=new Dialog();
+        resultIni=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
+    dialog.setReuslt(resultIni);
+    dialog.reuslt=resultIni;
+             DialogFragment dlg1;
+                dlg1 = new Dialog();
+                dlg1.show(getFragmentManager(), "dlg1");
 
             }
         });
         return view;
     }
+
     View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -82,6 +93,8 @@ public class MainFragment extends Fragment {
             }
         }
     };
+
+
     Calculation calculation=new Calculation();
     private TextWatcher next=new TextWatcher() {
         @Override

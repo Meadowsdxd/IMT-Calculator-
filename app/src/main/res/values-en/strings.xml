@@ -11,4 +11,9 @@
     <string name="firstDegree">30-35 Obesity of the first degree</string>
     <string name="secondDegree">35-40 Obesity of the second degree</string>
     <string name="thirdDegree">40 and over Obesity of the third degree (morbid)</string>
+    <string name="dialog_1">Dialog </string>
+    <string name="message_text">Text of your message</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="maybe">Maybe</string>
 </resources>
