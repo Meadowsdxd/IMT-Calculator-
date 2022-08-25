@@ -99,8 +99,9 @@ public class MainFragment extends Fragment {
                     result.setText("");
                 }
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
-                    result.setText(String.format("%.1f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck))));
                     iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
+
+                    result.setText(String.format("%.1f",iniResult));
                     Dialog dialog=new Dialog();
                     dialog.setReuslt(iniResult);
 
