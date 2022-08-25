@@ -36,8 +36,8 @@ public class HelperActivity extends AppCompatActivity{
              myCardData = new MyCardData[]{
                     new MyCardData("https://gymmaxx.com", "Фітнес клуб преміум клас", R.drawable.gymaxx),
                     new MyCardData("https://sportzal.com.ua/ru", "Интернет-магазин спортивных тренажеров SPORTZAL", R.drawable.sportazal),
-                    new MyCardData("https://www.youtube.com/watch?v=hduA_n3_qMc", "Как похудеть на 30 кг. Моя история похудения. Жиросжигатель", R.drawable.img_3),
-                    new MyCardData("Зхуднення 4", "Підтримка 4", R.drawable.men),
+                    new MyCardData("https://5element.ua/ua/", "ЕЛІТНИЙ ФІТНЕС КЛУБ ПРЕМІУМ КЛАСУ «5 ЕЛЕМЕНТ»", R.drawable.fiveelement),
+                    new MyCardData("https://www.youtube.com/watch?v=DIxS6b0ZNlE", "Тренировка для всего тела в домашних условиях", R.drawable.inhome),
                     new MyCardData("Зхуднення 5", "Підтримка 1", R.drawable.men),
                     new MyCardData("Зхуднення 6", "Підтримка 1", R.drawable.men),
                     new MyCardData("Зхуднення 7", "Підтримка 1", R.drawable.men),
