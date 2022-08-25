@@ -37,7 +37,7 @@ public class MainFragment extends Fragment {
     RadioButton men,girl;
     boolean sexCheck;
     double iniResult=0;
-    double resultIni=0;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,13 +66,7 @@ public class MainFragment extends Fragment {
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog=new Dialog();
-        resultIni=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
-    dialog.setReuslt(resultIni);
 
-             DialogFragment dlg1;
-                dlg1 = new Dialog();
-                dlg1.show(getFragmentManager(), "dlg1");
 
             }
         });
@@ -106,9 +100,13 @@ public class MainFragment extends Fragment {
                 }
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
                     result.setText(String.format("%.1f",Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck))));
-
-
                     iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
+                    Dialog dialog=new Dialog();
+                    dialog.setReuslt(iniResult);
+
+                    DialogFragment dlg1;
+                    dlg1 = new Dialog();
+                    dlg1.show(getFragmentManager(), "dlg1");
                     if(iniResult==0){
                         underweight.setTextColor(Color.parseColor("#FF000000"));
                         Insufficient.setTextColor(Color.parseColor("#FF000000"));
