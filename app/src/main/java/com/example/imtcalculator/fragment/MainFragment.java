@@ -59,7 +59,6 @@ public class MainFragment extends Fragment {
         weight.addTextChangedListener(next);
         nextPage.setVisibility(View.GONE);
         nextPage.setOnClickListener(view1 -> {
-
             Intent intent=new Intent(getContext(),HelperActivity.class);
             intent.putExtra("result",iniResult);
             startActivity(intent);
