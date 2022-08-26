@@ -63,10 +63,16 @@ public class MainFragment extends Fragment {
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
+        nextPage.setVisibility(View.GONE);
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Dialog dialog=new Dialog();
+                dialog.setReuslt(iniResult);
 
+                DialogFragment dlg1;
+                dlg1 = new Dialog();
+                dlg1.show(getFragmentManager(), "dlg1");
 
             }
         });
@@ -95,19 +101,16 @@ public class MainFragment extends Fragment {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // текст только что изменили
             try {
+
                 if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))){weightView.Accept(0);
                     result.setText("");
+                    nextPage.setVisibility(View.GONE);
                 }
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
                     iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
-
+                    nextPage.setVisibility(View.VISIBLE);
                     result.setText(String.format("%.1f",iniResult));
-                    Dialog dialog=new Dialog();
-                    dialog.setReuslt(iniResult);
 
-                    DialogFragment dlg1;
-                    dlg1 = new Dialog();
-                    dlg1.show(getFragmentManager(), "dlg1");
                     if(iniResult==0){
                         underweight.setTextColor(Color.parseColor("#FF000000"));
                         Insufficient.setTextColor(Color.parseColor("#FF000000"));

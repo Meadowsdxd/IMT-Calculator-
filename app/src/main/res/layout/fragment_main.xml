@@ -96,7 +96,7 @@
 
             <TextView
                 android:id="@+id/textView20"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
@@ -110,7 +110,7 @@
                 android:layout_width="100sp"
                 android:layout_height="45sp"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="66sp"
+                android:layout_marginStart="23dp"
                 android:layout_marginTop="52sp"
                 android:layout_toEndOf="@+id/textView20"
                 android:ems="10"
@@ -129,7 +129,7 @@
 
             <TextView
                 android:id="@+id/textView21"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView20"
                 android:layout_alignParentStart="true"
@@ -143,7 +143,7 @@
                 android:layout_width="100sp"
                 android:layout_height="45sp"
                 android:layout_below="@+id/age"
-                android:layout_marginStart="43dp"
+                android:layout_marginStart="23dp"
                 android:layout_marginTop="21dp"
                 android:layout_toEndOf="@+id/textView21"
                 android:ems="10"
@@ -156,7 +156,7 @@
                 android:layout_width="100sp"
                 android:layout_height="45sp"
                 android:layout_below="@+id/height"
-                android:layout_marginStart="49sp"
+                android:layout_marginStart="23dp"
                 android:layout_marginTop="22sp"
                 android:layout_toEndOf="@+id/textView22"
                 android:ems="10"
@@ -166,13 +166,24 @@
 
             <TextView
                 android:id="@+id/textView22"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView21"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="29dp"
                 android:layout_marginTop="32dp"
                 android:text="@string/weight"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView22"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/result"
                 android:textSize="24sp" />
 
             <Spinner
@@ -183,18 +194,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="44dp"
                 android:layout_toEndOf="@+id/weight" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="87dp"
-                android:layout_height="36dp"
-                android:layout_below="@+id/weight"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="243dp"
-                android:layout_marginTop="234dp"
-
-                android:background="@drawable/ask"
-                android:visibility="visible" />
 
             <RadioGroup
                 android:id="@+id/sex"
@@ -230,21 +229,21 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/result"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="-5dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="37dp"
                 app:srcCompat="@drawable/scaletest" />
 
             <com.example.imtcalculator.view.WeightView
                 android:id="@+id/indicator"
                 android:layout_width="410dp"
                 android:layout_height="189dp"
+                android:layout_below="@+id/result"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="1dp"
-                android:layout_marginTop="323dp"
-                android:layout_marginEnd="0dp"
 
+                android:layout_marginTop="61dp"
+                android:layout_marginEnd="0dp"
                 app:color="#77f577"
                 app:fontName="digital-7 (mono italic).ttf"
                 app:markRange="5"
@@ -256,14 +255,25 @@
                 android:id="@+id/result"
                 android:layout_width="100sp"
                 android:layout_height="50sp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="169dp"
-                android:layout_marginTop="252dp"
-                android:layout_marginEnd="142dp"
+                android:layout_below="@+id/weight"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/textView"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weight"
+                android:layout_marginStart="13dp"
+
+                android:layout_marginTop="16dp"
+                android:layout_toEndOf="@+id/result"
+                android:background="#00FFFFFF"
+                android:foreground="@drawable/ask"
+                android:visibility="visible" />
         </RelativeLayout>
 
     </ScrollView>
