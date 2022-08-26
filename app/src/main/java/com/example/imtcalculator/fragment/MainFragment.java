@@ -66,7 +66,6 @@ public class MainFragment extends Fragment {
         });
         return view;
     }
-
     View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
         @SuppressLint("NonConstantResourceId")
         @Override
