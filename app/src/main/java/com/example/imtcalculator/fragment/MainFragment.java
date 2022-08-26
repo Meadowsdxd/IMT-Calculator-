@@ -37,6 +37,7 @@ public class MainFragment extends Fragment {
     RadioButton men,girl;
     boolean sexCheck;
     double iniResult=0;
+double resultIni=0;
 
 
     @Override
@@ -67,13 +68,10 @@ public class MainFragment extends Fragment {
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Dialog dialog=new Dialog();
-                dialog.setReuslt(iniResult);
 
-                DialogFragment dlg1;
-                dlg1 = new Dialog();
-                dlg1.show(getFragmentManager(), "dlg1");
-
+                Intent intent=new Intent(getContext(),HelperActivity.class);
+                intent.putExtra("result",iniResult);
+                startActivity(intent);
             }
         });
         return view;
@@ -108,6 +106,10 @@ public class MainFragment extends Fragment {
                 }
                 else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
                     iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
+                   /* resultIni=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
+                    Dialog dialog=new Dialog();
+                    dialog.setReuslt(iniResult);
+*/
                     nextPage.setVisibility(View.VISIBLE);
                     result.setText(String.format("%.1f",iniResult));
 

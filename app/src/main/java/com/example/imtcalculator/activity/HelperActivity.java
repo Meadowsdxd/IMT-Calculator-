@@ -10,7 +10,10 @@ import android.widget.Toast;
 import com.example.imtcalculator.R;
 
 public class HelperActivity extends AppCompatActivity{
-    double result=0;
+    public double result=0;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,14 +22,15 @@ public class HelperActivity extends AppCompatActivity{
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         MyCardData[] myCardData = new MyCardData[0];
-      Bundle arguments = getIntent().getExtras();
-         result = (double) arguments.get("result");
+     Bundle arguments = getIntent().getExtras();
+         double result = (double) arguments.get("result");
 
+        Toast.makeText(this,String.valueOf(result),Toast.LENGTH_LONG).show();
        if(result<18){ myCardData = new MyCardData[]{
                 new MyCardData("https://www.youtube.com/watch?v=4s3QStdR-HU", "КАК ПИТАТЬСЯ, ЧТОБЫ НАБРАТЬ МЫШЕЧНУЮ МАССУ! 7 ЗАКОНОВ", R.drawable.img_1),
-                new MyCardData("https://www.youtube.com/watch?v=k9nlPis5u7s", "10 ГЛАВНЫХ ОШИБОК ПРИ НАБОРЕ МАССЫ", R.drawable.img_3),
-                new MyCardData("https://www.youtube.com/watch?v=hduA_n3_qMc", "Как похудеть на 30 кг. Моя история похудения. Жиросжигатель", R.drawable.img_3),
-                new MyCardData("https://fitness.org.ua/iak-shvidko-nabrati-vagy-prikladi-menu-prodyktiv-i-vprav/", "Ви завжди вважали себе занадто худим? Шкіра та кістки? В той час, коли більшості необхідно скинути вагу, набрати його може бути дуже складним завданням.\n"+
+                new MyCardData("https://www.youtube.com/watch?v=k9nlPis5u7s", "10 ГЛАВ111111111НЫХ ОШИБОК ПРИ НАБОРЕ МАССЫ", R.drawable.img_3),
+               new MyCardData("https://gymmaxx.com", "Фітнес клуб преміум клас", R.drawable.gymaxx),
+               new MyCardData("https://fitness.org.ua/iak-shvidko-nabrati-vagy-prikladi-menu-prodyktiv-i-vprav/", "Ви завжди вважали себе занадто худим? Шкіра та кістки? В той час, коли більшості необхідно скинути вагу, набрати його може бути дуже складним завданням.\n"+
                         "Хочете дізнатися як швидко набрати вагу без шкоди для здоров’я? У цій статті ми розповімо як збільшити масу тіла за короткий термін.", R.drawable.img_5),
                 new MyCardData("https://bodia.online/subcategory/sportivni-zali-sektsiyi/trenazhernii-zal-ta-fitnes", "ТРЕНАЖЕРНІ ЗАЛИ ТА ФІТНЕС КЛУБИ В УКРАЇНІ", R.drawable.img_4),
              /*   new MyCardData("Зхуднення 6", "Набор 1", R.drawable.men),
