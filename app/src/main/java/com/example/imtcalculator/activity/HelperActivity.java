@@ -25,7 +25,7 @@ public class HelperActivity extends AppCompatActivity{
      Bundle arguments = getIntent().getExtras();
          double result = (double) arguments.get("result");
 
-        Toast.makeText(this,String.valueOf(result),Toast.LENGTH_LONG).show();
+/*        Toast.makeText(this,String.valueOf(result),Toast.LENGTH_LONG).show();*/
        if(result<18){ myCardData = new MyCardData[]{
                new MyCardData("https://www.youtube.com/watch?v=4s3QStdR-HU", "ЯК ХАРЧУВАТИСЯ, ЩОБ НАБРАТИ М'ЯЗОВУ МАСУ! 7 ЗАКОНІВ", R.drawable.img_1),
                new MyCardData("https://www.youtube.com/watch?v=k9nlPis5u7s", "10 ГОЛОВНИХ ПОМИЛОК ПРИ НАБОРІ МАСИ", R.drawable.img_3),
