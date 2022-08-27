@@ -23,7 +23,6 @@ import com.example.imtcalculator.view.WeightView;
 
 public class MainFragment extends Fragment {
 
-
     EditText age,weight,height;
     private  WeightView weightView;
     TextView result,underweight,Insufficient,Norm,preobesity,firstDegree,secondDegree,thirdDegree;
@@ -32,10 +31,8 @@ public class MainFragment extends Fragment {
     boolean sexCheck;
     double iniResult=0;
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         age = view.findViewById(R.id.age);
         weight = view.findViewById(R.id.weight);
@@ -51,13 +48,14 @@ public class MainFragment extends Fragment {
         thirdDegree=view.findViewById(R.id.thirdDegree);
         men=view.findViewById(R.id.men);
         girl=view.findViewById(R.id.girl);
-    nextPage=view.findViewById(R.id.button);
+        nextPage=view.findViewById(R.id.button);
         men.setOnClickListener(radioButtonClickListener);
         girl.setOnClickListener(radioButtonClickListener);
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
         nextPage.setVisibility(View.GONE);
+
         nextPage.setOnClickListener(view1 -> {
             Intent intent=new Intent(getContext(),HelperActivity.class);
             intent.putExtra("result",iniResult);
@@ -81,7 +79,6 @@ public class MainFragment extends Fragment {
         }
     };
 
-
     Calculation calculation=new Calculation();
     private final TextWatcher next=new TextWatcher() {
         @SuppressLint("DefaultLocale")
@@ -89,7 +86,6 @@ public class MainFragment extends Fragment {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // текст только что изменили
             try {
-
                 if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))){weightView.Accept(0);
                     result.setText("");
                     nextPage.setVisibility(View.GONE);
@@ -98,7 +94,6 @@ public class MainFragment extends Fragment {
                     iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
                       nextPage.setVisibility(View.VISIBLE);
                     result.setText(String.format("%.1f",iniResult));
-
                     if(iniResult==0){
                         underweight.setTextColor(Color.parseColor("#FF000000"));
                         Insufficient.setTextColor(Color.parseColor("#FF000000"));
@@ -174,27 +169,15 @@ public class MainFragment extends Fragment {
                         secondDegree.setTextColor(Color.parseColor("#FF000000"));
                         thirdDegree.setTextColor(Color.parseColor("#FF03A9F4"));
                     }
-
                 }
             }catch (NumberFormatException e) {
                 e.printStackTrace();
             }
-
-
         }
-
-
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            // текст будет изменен
-
-        }
-
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
         @Override
-        public void afterTextChanged(Editable s) {
-            // текст уже изменили
-
-        }
+        public void afterTextChanged(Editable s) {}
     };
 
 }
