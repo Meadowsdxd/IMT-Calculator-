@@ -11,10 +11,16 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.activity.HelperActivity;
 import com.example.imtcalculator.more.Calculation;
@@ -30,7 +36,9 @@ public class MainFragment extends Fragment {
     RadioButton men,girl;
     boolean sexCheck;
     double iniResult=0;
-
+    Spinner spinnerHeight;
+    String[] heightSpin = { "См", "Метр", "Дюйм","Фут"};
+    String[] weightSpin = { "Кг","Фут"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -56,12 +64,15 @@ public class MainFragment extends Fragment {
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
         nextPage.setVisibility(View.GONE);
+        Spinner1(view);
+
 
         nextPage.setOnClickListener(view1 -> {
             Intent intent=new Intent(getContext(),HelperActivity.class);
             intent.putExtra("result",iniResult);
             startActivity(intent);
         });
+
         return view;
     }
     View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
@@ -80,21 +91,27 @@ public class MainFragment extends Fragment {
         }
     };
 
+
     Calculation calculation=new Calculation();
     private final TextWatcher next=new TextWatcher() {
         @SuppressLint("DefaultLocale")
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            // текст только что изменили
-            try {
+
+                try {
                 if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))){weightView.Accept(0);
                     result.setText("");
                     nextPage.setVisibility(View.GONE);
                 }
-                else{ weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck)));
-                    iniResult=Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()),Double.parseDouble(height.getText().toString()),Integer.parseInt(age.getText().toString()),sexCheck));
-                      nextPage.setVisibility(View.VISIBLE);
-                    result.setText(String.format("%.1f",iniResult));
+                else{
+
+
+                        weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck)));
+                        iniResult = Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck));
+
+                        nextPage.setVisibility(View.VISIBLE);
+                        result.setText(String.format("%.1f", iniResult));
+                    }
                     if(iniResult==0){
                         underweight.setTextColor(Color.parseColor("#FF000000"));
                         Insufficient.setTextColor(Color.parseColor("#FF000000"));
@@ -170,15 +187,36 @@ public class MainFragment extends Fragment {
                         secondDegree.setTextColor(Color.parseColor("#FF000000"));
                         thirdDegree.setTextColor(Color.parseColor("#FF03A9F4"));
                     }
-                }
+
             }catch (NumberFormatException e) {
                 e.printStackTrace();
-            }
-        }
+            }}
+
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
         @Override
         public void afterTextChanged(Editable s) {}
     };
 
+private void Spinner1(View view){
+    spinnerHeight  = view.findViewById(R.id.spinnerHeight);
+    // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
+    ArrayAdapter<String> adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, heightSpin);
+    // Определяем разметку для использования при выборе элемента
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    // Применяем адаптер к элементу spinner
+    spinnerHeight.setAdapter(adapter);
+    spinnerHeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        public void onItemSelected(AdapterView<?> parent,
+                                   View itemSelected, int selectedItemPosition, long selectedId) {
+            switch (selectedItemPosition){
+                case 0: Toast.makeText(getContext(),"1",Toast.LENGTH_LONG).show();break;
+                case 1:Toast.makeText(getContext(),"2",Toast.LENGTH_LONG).show();break;
+                case 2:Toast.makeText(getContext(),"3",Toast.LENGTH_LONG).show();break;
+                case 3:Toast.makeText(getContext(),"4",Toast.LENGTH_LONG).show();break;
+            }}
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
+    });
+}
 }
