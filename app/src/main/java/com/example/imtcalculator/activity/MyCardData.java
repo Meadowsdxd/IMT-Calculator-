@@ -2,10 +2,10 @@ package com.example.imtcalculator.activity;
 
 public class MyCardData {
     private String cardName;
-    private String cardData;
+    private Integer cardData;
     private Integer cardImage;
 
-    public MyCardData(String cardName, String cardData, Integer cardImage) {
+    public MyCardData(String cardName, int cardData, Integer cardImage) {
         this.cardName = cardName;
         this.cardData = cardData;
         this.cardImage = cardImage;
@@ -19,11 +19,11 @@ public class MyCardData {
         this.cardName = cardName;
     }
 
-    public String getCardData() {
+    public Integer getCardData() {
         return cardData;
     }
 
-    public void setCardData(String cardData) {
+    public void setCardData(Integer cardData) {
         this.cardData = cardData;
     }
 

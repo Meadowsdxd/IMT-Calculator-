@@ -53,7 +53,6 @@ public class MyCardAdapter extends RecyclerView.Adapter<MyCardAdapter.ViewHolder
         return myCardData.length;
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView movieImage;
         TextView textViewName;
