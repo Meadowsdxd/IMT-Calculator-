@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
     double iniResult=0;
     Spinner spinnerHeight,spinnerWeight;
     String[] heightSpin = { "См", "Метр", "Дюйм","Фут"};
-    String[] weightSpin = { "Кг","Фут"};
+    String[] weightSpin = { "Кг","Фунт"};
     int heightPos,weightPos;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

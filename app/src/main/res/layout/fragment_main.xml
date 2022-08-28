@@ -147,7 +147,7 @@
                 android:layout_marginTop="21dp"
                 android:layout_toEndOf="@+id/textView21"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="number|numberDecimal"
                 android:minHeight="48dp"
                 android:textSize="24sp" />
 
@@ -160,7 +160,7 @@
                 android:layout_marginTop="22sp"
                 android:layout_toEndOf="@+id/textView22"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="number|numberDecimal"
                 android:textSize="24sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
