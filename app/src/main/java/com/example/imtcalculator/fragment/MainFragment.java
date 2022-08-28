@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class MainFragment extends Fragment {
     TextView result,underweight,Insufficient,Norm,preobesity,firstDegree,secondDegree,thirdDegree;
     Button nextPage;
     RadioButton men,girl;
+    RadioGroup ra;
     boolean sexCheck;
     double iniResult=0;
     Spinner spinnerHeight,spinnerWeight;
@@ -59,11 +61,12 @@ public class MainFragment extends Fragment {
         men=view.findViewById(R.id.men);
         girl=view.findViewById(R.id.girl);
         nextPage=view.findViewById(R.id.button);
-        men.setOnClickListener(radioButtonClickListener);
-        girl.setOnClickListener(radioButtonClickListener);
+    /*    men.setOnClickListener(radioButtonClickListener);
+        girl.setOnClickListener(radioButtonClickListener);*/
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
+        ra=view.findViewById(R.id.sex);
         nextPage.setVisibility(View.GONE);
         Spinner1(view);
         Spinner2(view);
@@ -76,7 +79,7 @@ public class MainFragment extends Fragment {
 
         return view;
     }
-    View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
+ /*   View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
         @SuppressLint("NonConstantResourceId")
         @Override
         public void onClick(View v) {
@@ -90,7 +93,8 @@ public class MainFragment extends Fragment {
                     break;
             }
         }
-    };
+    };*/
+
 
 
     Calculation calculation=new Calculation();
@@ -98,20 +102,35 @@ public class MainFragment extends Fragment {
         @SuppressLint("DefaultLocale")
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 try {
-                if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))){weightView.Accept(0);
+                if ((weight.getText().toString().equals(""))||(age.getText().toString().equals(""))||(height.getText().toString().equals(""))||ra.isSelected()){weightView.Accept(0);
                     result.setText("");
                     nextPage.setVisibility(View.GONE);
                 }
                 else{
+                    ra.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                            switch (checkedId) {
+                                case -1:
+
+                                    break;
+                                case R.id.men:{sexCheck=true;transfer();   /*Toast.makeText(getContext(),"men",Toast.LENGTH_LONG).show();*/}
+
+                                    break;
+                                case R.id.girl:{sexCheck=false; transfer();  /*Toast.makeText(getContext(),"girl",Toast.LENGTH_LONG).show();*/ }
+
+                                    break;
 
 
-                        weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck,heightPos,weightPos)));
-                        iniResult = Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck,heightPos,weightPos));
+                                default:
+                                    break;
+                            }
+                        }
+                    });
+                    transfer();
 
-                        nextPage.setVisibility(View.VISIBLE);
-                        result.setText(String.format("%.1f", iniResult));
                     }
                     if(iniResult==0){
                         underweight.setTextColor(Color.parseColor("#FF000000"));
@@ -210,10 +229,10 @@ private void Spinner1(View view){
     spinnerHeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
             switch (selectedItemPosition){
-                case 0: heightPos=1; break;
-                case 1: heightPos=2;break;
-                case 2: heightPos=3;break;
-                case 3: heightPos=4;break;
+                case 0: {heightPos=1; /*Toast.makeText(getContext(),"1",Toast.LENGTH_LONG).show();*/}break;
+                case 1:{ heightPos=2;/* Toast.makeText(getContext(),"2",Toast.LENGTH_LONG).show();*/}break;
+                case 2: {heightPos=3; /*Toast.makeText(getContext(),"3",Toast.LENGTH_LONG).show();*/}break;
+                case 3: {heightPos=4;/*Toast.makeText(getContext(),"4",Toast.LENGTH_LONG).show();*/ }break;
 
             }}
         public void onNothingSelected(AdapterView<?> parent) {
@@ -231,13 +250,21 @@ private void Spinner1(View view){
         spinnerWeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
                 switch (selectedItemPosition){
-                    case 0: weightPos=1;break;
-                    case 1: weightPos=2;break;
+                    case 0:{ weightPos=1;/*Toast.makeText(getContext(),"1",Toast.LENGTH_LONG).show();*/}break;
+                    case 1:{ weightPos=2;/*Toast.makeText(getContext(),"2",Toast.LENGTH_LONG).show();*/}break;
 
 
                 }}
             public void onNothingSelected(AdapterView<?> parent) {
             }
+
         });
     }
+    void transfer(){
+        weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck,heightPos,weightPos)));
+        iniResult = Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck,heightPos,weightPos));
+        nextPage.setVisibility(View.VISIBLE);
+        result.setText(String.format("%.1f", iniResult));
+    }
+
 }
