@@ -36,9 +36,10 @@ public class MainFragment extends Fragment {
     RadioButton men,girl;
     boolean sexCheck;
     double iniResult=0;
-    Spinner spinnerHeight;
+    Spinner spinnerHeight,spinnerWeight;
     String[] heightSpin = { "См", "Метр", "Дюйм","Фут"};
     String[] weightSpin = { "Кг","Фут"};
+    int heightPos,weightPos;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
@@ -65,7 +66,7 @@ public class MainFragment extends Fragment {
         weight.addTextChangedListener(next);
         nextPage.setVisibility(View.GONE);
         Spinner1(view);
-
+        Spinner2(view);
 
         nextPage.setOnClickListener(view1 -> {
             Intent intent=new Intent(getContext(),HelperActivity.class);
@@ -106,8 +107,8 @@ public class MainFragment extends Fragment {
                 else{
 
 
-                        weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck)));
-                        iniResult = Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck));
+                        weightView.Accept(Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck,heightPos,weightPos)));
+                        iniResult = Math.abs(calculation.FLourenca(Double.parseDouble(weight.getText().toString()), Double.parseDouble(height.getText().toString()), Integer.parseInt(age.getText().toString()), sexCheck,heightPos,weightPos));
 
                         nextPage.setVisibility(View.VISIBLE);
                         result.setText(String.format("%.1f", iniResult));
@@ -207,16 +208,36 @@ private void Spinner1(View view){
     // Применяем адаптер к элементу spinner
     spinnerHeight.setAdapter(adapter);
     spinnerHeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-        public void onItemSelected(AdapterView<?> parent,
-                                   View itemSelected, int selectedItemPosition, long selectedId) {
+        public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
             switch (selectedItemPosition){
-                case 0: Toast.makeText(getContext(),"1",Toast.LENGTH_LONG).show();break;
-                case 1:Toast.makeText(getContext(),"2",Toast.LENGTH_LONG).show();break;
-                case 2:Toast.makeText(getContext(),"3",Toast.LENGTH_LONG).show();break;
-                case 3:Toast.makeText(getContext(),"4",Toast.LENGTH_LONG).show();break;
+                case 0: heightPos=1; break;
+                case 1: heightPos=2;break;
+                case 2: heightPos=3;break;
+                case 3: heightPos=4;break;
+
             }}
         public void onNothingSelected(AdapterView<?> parent) {
         }
     });
 }
+    private void Spinner2(View view){
+        spinnerWeight  = view.findViewById(R.id.spinnerWeight);
+        // Создаем адаптер ArrayAdapter с помощью массива строк и стандартной разметки элемета spinner
+        ArrayAdapter<String> adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, weightSpin);
+        // Определяем разметку для использования при выборе элемента
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Применяем адаптер к элементу spinner
+        spinnerWeight.setAdapter(adapter);
+        spinnerWeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
+                switch (selectedItemPosition){
+                    case 0: weightPos=1;break;
+                    case 1: weightPos=2;break;
+
+
+                }}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
 }
