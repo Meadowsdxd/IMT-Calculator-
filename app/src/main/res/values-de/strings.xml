@@ -32,4 +32,50 @@
     <string name="link12">Diät für Faule: Mit welchen Regeln verlieren Sie mühelos Übergewicht</string>
     <string name="link13">Wie man 30 kg abnimmt. Meine Abnehmgeschichte. Fatburner</string>
     <string name="link14">Einfacher Gewichtsverlust. Endlich haben Sie das Gefühl, Ihr Essen unter Kontrolle zu haben.</string>
-    <string name="link15">Arzt-Ernährungsberater, Ernährungsberater Experte Systemanalyse von Risiken und kritischen Punkten der Lebensmittelsicherheitskontrolle (HASCP). Der Arzt ist ein Experte der höchsten Kategorie auf dem Gebiet der Lebensmittelsicherheit und Ernährung.</string></resources>
+    <string name="link15">Arzt-Ernährungsberater, Ernährungsberater Experte Systemanalyse von Risiken und kritischen Punkten der Lebensmittelsicherheitskontrolle (HASCP). Der Arzt ist ein Experte der höchsten Kategorie auf dem Gebiet der Lebensmittelsicherheit und Ernährung.</string>
+    <string name="facharbeit_text">Facharbeit von Tobias Schnürpel</string>
+
+    <string name="title_pedometer">Schrittzähler</string>
+    <string name="title_acceleration">Beschleunigungssensor</string>
+
+    <string name="pedometer">Schrittzähler</string>
+    <string name="number_of_steps">Schrittanzahl:</string>
+    <string name="pedometer_running">Schrittzähler läuft</string>
+    <string name="pedometer_not_running">Schrittzähler gestoppt</string>
+    <string name="type_of_step">Schrittart:</string>
+    <string name="duration_of_step">Schrittdauer:</string>
+
+    <string name="acitvate_pedometer">Schrittzähler starten</string>
+    <string name="disable_pedometer">Schrittzähler stoppen</string>
+
+    <string name="results">Ergebnisse</string>
+    <string name="of_the_last_measurement">der letzten Messung (geschätzt)</string>
+    <string name="total_steps">Schritte gesamt:</string>
+    <string name="from_that">davon…</string>
+    <string name="walking_steps">Gehen:</string>
+    <string name="jogging_steps">Joggen / schnelles Gehen:</string>
+    <string name="running_steps">Rennen:</string>
+    <string name="total_distance">Gesamtdistanz:</string>
+    <string name="average_speed">Durchschnittsgeschwindigkeit:</string>
+    <string name="average_frequency">Schrittfrequenz:</string>
+    <string name="burned_calories">Verbrannte Kalorien:</string>
+    <string name="moving_time">Bewegungszeit:</string>
+
+    <string name="walking">Gehen</string>
+    <string name="jogging">Joggen</string>
+    <string name="running">Rennen</string>
+
+    <string name="live_data">Live-Messwerte</string>
+    <string name="graph">Graph</string>
+    <string name="details">Details</string>
+
+    <string name="name">Name:</string>
+    <string name="manufacturer">Hersteller:</string>
+    <string name="version">Version:</string>
+    <string name="energy">Energie:</string>
+    <string name="resolution">Auflösung:</string>
+    <string name="max_range">max. Bereich:</string>
+    <string name="min_range">min. Bereich:</string>
+    <string name="accuracy">Genauigkeit:</string>
+    <string name="delay">Delay:</string>
+</resources>
