@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.fragment.MainFragment;
-import com.example.imtcalculator.fragment.StepsFragment;
+import com.example.imtcalculator.stepscounter.maininfo.StepsFragmentCount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ private ViewPager pager;
         setContentView(R.layout.activity_main);
         List<Fragment> list = new ArrayList<>();
         list.add(new MainFragment());
-        list.add(new StepsFragment());
+        list.add(new StepsFragmentCount());
         pager = findViewById(R.id.pager);
         adapter = new Slider(getSupportFragmentManager(), list);
         pager.setAdapter(adapter);
