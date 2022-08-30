@@ -190,29 +190,29 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textview_results_running_steps.setText(String.valueOf(runningSteps));
 
         float totalDistance = walkingSteps * 0.5f + joggingSteps * 1.0f + runningSteps * 1.5f;
-        String distance = totalDistance + " m";
+        String distance = totalDistance + " v";
         textview_results_total_distance.setText(distance);
 
         float totalDuration = walkingSteps * 1.0f + joggingSteps * 0.75f + runningSteps * 0.5f;
         float hours = totalDuration / 3600;
         float minutes = (totalDuration % 3600) / 60;
         float seconds = totalDuration % 60;
-        String duration = String.format(Locale.GERMANY,"%.0f", hours) + "h " +
-                String.format(Locale.GERMANY, "%.0f", minutes) + "min " +
-                String.format(Locale.GERMANY, "%.0f", seconds) + "s";
+        String duration = String.format(Locale.GERMANY,"%.0f", hours) + "год " +
+                String.format(Locale.GERMANY, "%.0f", minutes) + "хв " +
+                String.format(Locale.GERMANY, "%.0f", seconds) + "с";
         textview_results_total_moving_time.setText(duration);
 
         // Average speed:
-        String averageSpeed = String.format(Locale.GERMANY, "%.2f", totalDistance / totalDuration) + " m/s";
+        String averageSpeed = String.format(Locale.GERMANY, "%.2f", totalDistance / totalDuration) + " м/с";
         textview_results_average_speed.setText(averageSpeed);
 
         // Average step frequency
-        String averageStepFrequency = String.format(Locale.GERMANY, "%.0f", totalSteps / minutes) + " Steps/min";
+        String averageStepFrequency = String.format(Locale.GERMANY, "%.0f", totalSteps / minutes) + "Кроки/хв";
         textview_results_average_frequency.setText(averageStepFrequency);
 
         // Calories
         float totalCaloriesBurned = walkingSteps + 0.05f + joggingSteps * 0.1f + runningSteps * 0.2f;
-        String totalCalories = String.format(Locale.GERMANY, "%.0f", totalCaloriesBurned) + " Calorien";
+        String totalCalories = String.format(Locale.GERMANY, "%.0f", totalCaloriesBurned) + " Калорії";
         textview_results_burned_calories.setText(totalCalories);
     }
 
