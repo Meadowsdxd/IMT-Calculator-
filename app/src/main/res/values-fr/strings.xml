@@ -35,7 +35,7 @@
     <string name="link14">Perte de poids simple. Enfin, sentez-vous maître de votre alimentation.</string>
     <string name="link15">Médecin-diététiste, nutritionniste Système Expert Analyse des Risques et Points Critiques de la Maîtrise de la Sécurité Alimentaire (HASCP). Le médecin est un expert de la plus haute catégorie dans le domaine de la sécurité alimentaire et de la nutrition.</string>
 
-    <string name="facharbeit_text">Term Paper by Tobias Schnürpel</string>
+
     <string name="title_pedometer">Pedometer</string>
     <string name="title_acceleration">Accelerometer</string>
     <string name="pedometer">Pedometer</string>
@@ -73,4 +73,7 @@
     <string name="min_range">min. range:</string>
     <string name="accuracy">Accuracy:</string>
     <string name="delay">Delay:</string>
+    <string name="kalorian">Calories</string>
+    <string name="stepsmin">pas/min</string>
+    <string name="mc">m/s:</string>
 </resources>

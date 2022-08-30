@@ -48,22 +48,12 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     // das Fragment neu erstellt wird (Orientierung ändert sich; App im Hintergrund etc.)
     private ViewModelCounter mViewModelCounter;
 
-    /**
-     * Returnt eine neue Instanz des SchrittzaehlerFragment's.
-     * @return neue Instanz
-     */
+
     public static StepsFragmentCount newInstance() {
         return new StepsFragmentCount();
     }
 
-    /**
-     * Wird bei Erstellung der Ansicht / GUI aufgerufen.
-     * Returnt die Ansicht
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return View - neu generiertes GUI
-     */
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -120,30 +110,21 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         return view;
     }
 
-    /**
-     * Wird bei Erstellung des Fragments aufgerufen. Initialisiert das ViewModel.
-     * @param savedInstanceState
-     */
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModelCounter = new ViewModelProvider(this).get(ViewModelCounter.class);
         super.onCreate(savedInstanceState);
     }
 
-    /**
-     * Wird aufgerufen, bevor das Fragment zerstört wird.
-     */
+
     @Override
     public void onDetach() {
         mViewModelCounter.getSensorManager().unregisterListener(this);
         super.onDetach();
     }
 
-    /**
-     * Wird aufgerufen, wenn sich Messwerte eines Sensors ändern.
-     * Da nur der Beschleunigungssensor registriert wird, kommen Werte nur von diesem.
-     * @param sensorEvent SensorEvent mit allen neuen Messwerten, Zeitstempel und Urpsrung
-     */
+
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         AccelerationData newAccelerationData = new AccelerationData();
@@ -169,21 +150,13 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         mViewModel.getAccelerationDataArrayList().clear();
     }*/
 
-    /**
-     * Wird aufgerufen, wenn sich die Genauigkeit des registrierten Sensors ändert.
-     * @param sensor Sensor, von dem sich die Genauigkeit geändert hat.
-     * @param i neue Genauigkeit
-     */
+
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
 
-    /**
-     * Wird aufgerufen, wenn im StepDetector ein Schritt erkannt wurde. Speichert Schritt im ViewModel.
-     * @param accelerationData AccelerationData: Ein Datensatz des Beschleunigungssensors, welcher für einen Schritt steht.
-     * @param stepType Enum StepType: Eine der drei Schritttypen aus dem Enum StepType.
-     */
+
     @Override
     public void step(AccelerationData accelerationData, StepType stepType) {
         // Step event coming back from StepDetector
@@ -203,10 +176,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         }
     }
 
-    /**
-     * Berechnet Ergebnisse der letzten Messung. Nur Schätzungen.
-     * Werden in der GUI angezeigt.
-     */
+
     private void calculateResults(){
         int totalSteps = mViewModelCounter.getAmountOfSteps();
         textview_results_total_steps.setText(String.valueOf(totalSteps));
@@ -237,18 +207,16 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textview_results_average_speed.setText(averageSpeed);
 
         // Average step frequency
-        String averageStepFrequency = String.format(Locale.GERMANY, "%.0f", totalSteps / minutes) + " Schritte/min";
+        String averageStepFrequency = String.format(Locale.GERMANY, "%.0f", totalSteps / minutes) + " Steps/min";
         textview_results_average_frequency.setText(averageStepFrequency);
 
         // Calories
         float totalCaloriesBurned = walkingSteps + 0.05f + joggingSteps * 0.1f + runningSteps * 0.2f;
-        String totalCalories = String.format(Locale.GERMANY, "%.0f", totalCaloriesBurned) + " Kalorien";
+        String totalCalories = String.format(Locale.GERMANY, "%.0f", totalCaloriesBurned) + " Calorien";
         textview_results_burned_calories.setText(totalCalories);
     }
 
-    /**
-     * Setzt einige Daten zurück.
-     */
+
     private void resetUI(){
         mViewModelCounter.setAmountOfSteps(0);
         mViewModelCounter.setWalkingSteps(0);
@@ -257,9 +225,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textView_amount_steps.setText(String.valueOf(mViewModelCounter.getWalkingSteps()));
     }
 
-    /**
-     * Startet Schrittsensor. (Fragment wird im SensorManager registriert)
-     */
+
     private void startCounting(){
         if(!mViewModelCounter.isCountingSteps()){
             try {
@@ -275,13 +241,11 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         }
     }
 
-    /**
-     * Stoppt Schrittsensor. (Fragment wird im SensorManager unregistriert)
-     */
+
     private void stopCounting(){
         if(mViewModelCounter.isCountingSteps()){
             try {
-                // Letzten verbliebenen Daten werden ebenfalls verarbeitet
+
                 //sendDataArray();
 
                 mViewModelCounter.getSensorManager().unregisterListener(this);

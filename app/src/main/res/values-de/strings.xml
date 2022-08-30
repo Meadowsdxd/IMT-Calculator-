@@ -33,7 +33,7 @@
     <string name="link13">Wie man 30 kg abnimmt. Meine Abnehmgeschichte. Fatburner</string>
     <string name="link14">Einfacher Gewichtsverlust. Endlich haben Sie das Gefühl, Ihr Essen unter Kontrolle zu haben.</string>
     <string name="link15">Arzt-Ernährungsberater, Ernährungsberater Experte Systemanalyse von Risiken und kritischen Punkten der Lebensmittelsicherheitskontrolle (HASCP). Der Arzt ist ein Experte der höchsten Kategorie auf dem Gebiet der Lebensmittelsicherheit und Ernährung.</string>
-    <string name="facharbeit_text">Facharbeit von Tobias Schnürpel</string>
+
 
     <string name="title_pedometer">Schrittzähler</string>
     <string name="title_acceleration">Beschleunigungssensor</string>
@@ -78,4 +78,7 @@
     <string name="min_range">min. Bereich:</string>
     <string name="accuracy">Genauigkeit:</string>
     <string name="delay">Delay:</string>
+    <string name="kalorian">Kalorien</string>
+    <string name="stepsmin">Schritte/min:</string>
+    <string name="mc">m/s:</string>
 </resources>

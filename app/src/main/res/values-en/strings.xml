@@ -34,7 +34,7 @@
     <string name="link14">Simple weight loss. Finally, feel in control of your food.</string>
     <string name="link15">Doctor-dietitian, nutritionist Expert System Analysis of Risks and Critical Points of Food Safety Control (HASCP). The doctor is an expert of the highest category in the field of food safety and nutrition.</string>
 
-    <string name="facharbeit_text">Term Paper by Tobias Schnürpel</string>
+
     <string name="title_pedometer">Pedometer</string>
     <string name="title_acceleration">Accelerometer</string>
     <string name="pedometer">Pedometer</string>
@@ -72,4 +72,7 @@
     <string name="min_range">min. range:</string>
     <string name="accuracy">Accuracy:</string>
     <string name="delay">Delay:</string>
+    <string name="kalorian">Calorie</string>
+    <string name="stepsmin">steps/min:</string>
+    <string name="mc">m/s:</string>
 </resources>
