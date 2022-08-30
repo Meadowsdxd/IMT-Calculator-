@@ -49,7 +49,7 @@
     <string name="disable_pedometer">Schrittzähler stoppen</string>
 
     <string name="results">Ergebnisse</string>
-    <string name="of_the_last_measurement">der letzten Messung (geschätzt)</string>
+    <string name="of_the_last_measurement">der letzten Messung</string>
     <string name="total_steps">Schritte gesamt:</string>
     <string name="from_that">davon…</string>
     <string name="walking_steps">Gehen:</string>

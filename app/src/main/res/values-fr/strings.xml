@@ -47,7 +47,7 @@
     <string name="acitvate_pedometer">Activate Pedometer</string>
     <string name="disable_pedometer">Disable Pedometer</string>
     <string name="results">Results</string>
-    <string name="of_the_last_measurement">of the last measurement (estimated)</string>
+    <string name="of_the_last_measurement">of the last measurement</string>
     <string name="total_steps">Total steps:</string>
     <string name="from_that">from that…</string>
     <string name="walking_steps">Walking:</string>

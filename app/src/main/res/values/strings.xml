@@ -49,7 +49,7 @@
     <string name="disable_pedometer">Зупинити крокомір</string>
 
     <string name="results">Результати</string>
-    <string name="of_the_last_measurement">останнього вимірювання (приблизно)</string>
+    <string name="of_the_last_measurement">останнього вимірювання</string>
     <string name="total_steps">Загальна кількість кроків:</string>
     <string name="from_that">з цього...</string>
     <string name="walking_steps">Ходьба:</string>
