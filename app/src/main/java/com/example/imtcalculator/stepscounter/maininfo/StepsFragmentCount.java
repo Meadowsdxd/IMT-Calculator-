@@ -34,6 +34,24 @@ import com.example.imtcalculator.stepscounter.StepType;
 
 public class StepsFragmentCount extends Fragment implements StepListener,SensorEventListener  {
 
+    private  int allsteps;
+    private double distance;
+    private double midllespeed;
+    private double timewalk;
+    private double lostcalorian;
+    public String dateandtime;
+
+    public StepsFragmentCount() {
+    }
+
+    public StepsFragmentCount(int allsteps, double distance, double midllespeed, double timewalk, double lostcalorian) {
+        this.allsteps = allsteps;
+        this.distance = distance;
+        this.midllespeed = midllespeed;
+        this.timewalk = timewalk;
+        this.lostcalorian = lostcalorian;
+    }
+
     private static final String TAG = "PedometerFragment";
 
     private CardView cardViewToggleStepCounting;
@@ -197,22 +215,22 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         float hours = totalDuration / 3600;
         float minutes = (totalDuration % 3600) / 60;
         float seconds = totalDuration % 60;
-        String duration = String.format(Locale.GERMANY,"%.0f", hours) + "год " +
-                String.format(Locale.GERMANY, "%.0f", minutes) + "хв " +
-                String.format(Locale.GERMANY, "%.0f", seconds) + "с";
+        String duration = String.format("%.0f", hours) + "год " +
+                String.format( "%.0f", minutes) + "хв " +
+                String.format( "%.0f", seconds) + "с";
         textview_results_total_moving_time.setText(duration);
 
         // Average speed:
-        String averageSpeed = String.format(Locale.GERMANY, "%.2f", totalDistance / totalDuration) + " м/с";
+        String averageSpeed = String.format( "%.2f", totalDistance / totalDuration) + " м/с";
         textview_results_average_speed.setText(averageSpeed);
 
         // Average step frequency
-        String averageStepFrequency = String.format(Locale.GERMANY, "%.0f", totalSteps / minutes) + "Кроки/хв";
+        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + "Кроки/хв";
         textview_results_average_frequency.setText(averageStepFrequency);
 
         // Calories
         float totalCaloriesBurned = walkingSteps + 0.05f + joggingSteps * 0.1f + runningSteps * 0.2f;
-        String totalCalories = String.format(Locale.GERMANY, "%.0f", totalCaloriesBurned) + " Калорії";
+        String totalCalories = String.format("%.0f", totalCaloriesBurned) + " Калорії";
         textview_results_burned_calories.setText(totalCalories);
     }
 

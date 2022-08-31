@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IMTCalculator">
         <activity
+            android:name=".stepscounter.ListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.HelperActivity"
             android:exported="false" />
         <activity
