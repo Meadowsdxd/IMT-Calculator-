@@ -13,9 +13,9 @@ import java.util.Comparator;
  */
 public class StepDetector {
 
-    private static final int WALKINGTHRESHOLD = 17;
-    private static final int JOGGINGTHRESHOLD = 24;
-    private static final int RUNNINGTHRESHOLD = 30;
+    private static final int WALKINGTHRESHOLD = 14;
+    private static final int JOGGINGTHRESHOLD = 21;
+    private static final int RUNNINGTHRESHOLD = 27;
 
     private StepListener stepListener;
 

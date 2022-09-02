@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "614341411215",
+    "project_id": "imt-calculator",
+    "storage_bucket": "imt-calculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614341411215:android:09039e795c2bb568c9cbfa",
+        "android_client_info": {
+          "package_name": "com.example.imtcalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614341411215-tmnfiii8c68d1hv1favvi1ro6trt7djc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn-08czx_DQMpI-tp35Y_InD3s37-N4Q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614341411215-tmnfiii8c68d1hv1favvi1ro6trt7djc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
