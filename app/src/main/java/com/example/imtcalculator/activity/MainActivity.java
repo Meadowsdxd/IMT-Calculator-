@@ -10,6 +10,8 @@ import android.os.Bundle;
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.fragment.MainFragment;
 import com.example.imtcalculator.stepscounter.maininfo.StepsFragmentCount;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ private ViewPager pager;
         pager = findViewById(R.id.pager);
         adapter = new Slider(getSupportFragmentManager(), list);
         pager.setAdapter(adapter);
+
     }
 }
 

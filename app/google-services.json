@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "614341411215",
+    "firebase_url": "https://imt-calculator-default-rtdb.firebaseio.com",
     "project_id": "imt-calculator",
     "storage_bucket": "imt-calculator.appspot.com"
   },

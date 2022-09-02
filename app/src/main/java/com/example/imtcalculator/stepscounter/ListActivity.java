@@ -3,7 +3,6 @@ package com.example.imtcalculator.stepscounter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.imtcalculator.R;
-import com.example.imtcalculator.more.Card;
+import com.example.imtcalculator.stepscounter.maininfo.Steps;
 import com.example.imtcalculator.stepscounter.maininfo.StepsFragmentCount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,9 +23,9 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
     public static ListView listView;
-    public ArrayAdapter<StepsFragmentCount> adapter;
+    public ArrayAdapter<Steps> adapter;
     private List<String> listData;
-    private List<StepsFragmentCount> listTemp;
+    private List<Steps> listTemp;
     DatabaseReference myRef;
     private String FORMULI = "items";
 
@@ -61,10 +60,10 @@ public class ListActivity extends AppCompatActivity {
                 if (listTemp.size() > 0) listData.clear();
 
                 for (DataSnapshot ds : snapshot.getChildren()) {
-                    StepsFragmentCount formula = ds.getValue(StepsFragmentCount.class);
+                    Steps formula = ds.getValue(Steps.class);
                     assert formula != null;
                     String name, i1;
-                    listData.add(formula.dateandtime);
+                    listData.add(formula.results_total_moving_time);
 
                     listTemp.add(formula);
 

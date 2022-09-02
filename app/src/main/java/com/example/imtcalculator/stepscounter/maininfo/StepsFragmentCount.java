@@ -13,16 +13,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import static android.content.Context.SENSOR_SERVICE;
 
@@ -31,26 +31,13 @@ import com.example.imtcalculator.stepscounter.AccelerationData;
 import com.example.imtcalculator.stepscounter.StepDetector;
 import com.example.imtcalculator.stepscounter.StepListener;
 import com.example.imtcalculator.stepscounter.StepType;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class StepsFragmentCount extends Fragment implements StepListener,SensorEventListener  {
 
-    private  int allsteps;
-    private double distance;
-    private double midllespeed;
-    private double timewalk;
-    private double lostcalorian;
-    public String dateandtime;
 
-    public StepsFragmentCount() {
-    }
 
-    public StepsFragmentCount(int allsteps, double distance, double midllespeed, double timewalk, double lostcalorian) {
-        this.allsteps = allsteps;
-        this.distance = distance;
-        this.midllespeed = midllespeed;
-        this.timewalk = timewalk;
-        this.lostcalorian = lostcalorian;
-    }
 
     private static final String TAG = "PedometerFragment";
 
@@ -78,13 +65,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         View view = inflater.inflate(R.layout.stepsfragmentcount, container, false);
 
         cardViewToggleStepCounting = view.findViewById(R.id.btn_pedometer_toggle_tracking);
-        cardViewToggleStepCounting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mViewModelCounter.isCountingSteps()) stopCounting();
-                else startCounting();
-            }
-        });
+
         textView_pedometer_toggle_text = view.findViewById(R.id.textview_pedometer_toggle_text);
 
         textView_amount_steps = view.findViewById(R.id.textview_amount_steps);
@@ -125,6 +106,34 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
             textView_amount_steps.setText(String.valueOf(mViewModelCounter.getAmountOfSteps()));
             mViewModelCounter.getSensorManager().registerListener(this, mViewModelCounter.getAccelerationSensor(), SensorManager.SENSOR_DELAY_NORMAL);
         }
+        cardViewToggleStepCounting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mViewModelCounter.isCountingSteps()) {stopCounting();
+                    try{
+                        final String ANDROID_ID = Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+                      /*  DatabaseReference myRef = database.getReference();*/
+                        DatabaseReference   mDataBase=FirebaseDatabase.getInstance().getReference(ANDROID_ID);
+                        String id=mDataBase.getKey();
+                        String results_total_steps=String.valueOf(textview_results_total_steps.getText());
+                        String results_total_distance=String.valueOf(textview_results_total_distance.getText());
+                        String results_average_speed=String.valueOf(textview_results_average_speed.getText());
+                        String results_average_frequency=String.valueOf(textview_results_average_frequency.getText());
+                        String results_burned_calories=  String.valueOf(textview_results_burned_calories.getText());
+                        String results_total_moving_time=  String.valueOf(textview_results_total_moving_time.getText());
+                        Steps formula=new Steps(id,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time);
+                        ArrayList<Steps> arrayList=new ArrayList<Steps>();
+                        arrayList.add(new Steps(id,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time));
+                        mDataBase.push().setValue(arrayList.get(0));
+                        Toast.makeText(getContext(), "put in DataBase", Toast.LENGTH_LONG).show();
+                      String  key = mDataBase.child("items").push().getKey();
+
+                    }catch(Exception e){e.printStackTrace();}
+                    Toast.makeText(getContext(), "\tERROR\nCan`t put in DataBase", Toast.LENGTH_LONG).show();}
+                else startCounting();
+            }
+
+        });
         return view;
     }
 
