@@ -47,7 +47,7 @@
 
     <string name="acitvate_pedometer">Schrittzähler starten</string>
     <string name="disable_pedometer">Schrittzähler stoppen</string>
-
+    <string name="transfer_to_next_page_text">Переглянути результати</string>
     <string name="results">Ergebnisse</string>
     <string name="of_the_last_measurement">der letzten Messung</string>
     <string name="total_steps">Schritte gesamt:</string>

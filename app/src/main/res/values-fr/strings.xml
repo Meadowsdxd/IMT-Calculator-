@@ -57,6 +57,7 @@
     <string name="average_speed">Average speed:</string>
     <string name="average_frequency">Average frequency:</string>
     <string name="burned_calories">Burned calories:</string>
+    <string name="transfer_to_next_page_text">Переглянути результати</string>
     <string name="moving_time">Moving time:</string>
     <string name="walking">Walking</string>
     <string name="jogging">Jogging</string>

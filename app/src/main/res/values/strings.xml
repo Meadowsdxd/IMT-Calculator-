@@ -47,7 +47,7 @@
 
     <string name="acitvate_pedometer">Запустити крокомір</string>
     <string name="disable_pedometer">Зупинити крокомір</string>
-
+    <string name="transfer_to_next_page_text">Переглянути результати</string>
     <string name="results">Результати</string>
     <string name="of_the_last_measurement">останнього вимірювання</string>
     <string name="total_steps">Загальна кількість кроків:</string>
