@@ -3,15 +3,17 @@ package com.example.imtcalculator.stepscounter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.imtcalculator.R;
+import com.example.imtcalculator.ShowActivity;
 import com.example.imtcalculator.stepscounter.maininfo.Steps;
-import com.example.imtcalculator.stepscounter.maininfo.StepsFragmentCount;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,18 +24,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
+
     public static ListView listView;
     public ArrayAdapter<Steps> adapter;
     private List<String> listData;
     private List<Steps> listTemp;
     DatabaseReference myRef;
-    private String FORMULI = "items";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         init();
+
+
     }
 
     private void init() {
@@ -41,16 +46,17 @@ public class ListActivity extends AppCompatActivity {
         listData = new ArrayList<>();
         listTemp = new ArrayList<>();
 
-
+        final String ANDROID_ID = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listTemp);
         listView.setAdapter(adapter);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        myRef = database.getReference(FORMULI);
+        myRef = database.getReference(ANDROID_ID);
         getDataFromDB();
         setOnClickItem();
 
 
     }
+
 
     private void getDataFromDB() {
         ValueEventListener eventListener = new ValueEventListener() {
@@ -62,8 +68,8 @@ public class ListActivity extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     Steps formula = ds.getValue(Steps.class);
                     assert formula != null;
-                    String name, i1;
-                    listData.add(formula.results_total_moving_time);
+
+                    listData.add(formula.dates);
 
                     listTemp.add(formula);
 
@@ -81,23 +87,23 @@ public class ListActivity extends AppCompatActivity {
         myRef.addValueEventListener(eventListener);
     }
 
-    private void setOnClickItem(){
+    private void setOnClickItem() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-     /*           Formula formula=listTemp.get(position);
-                Intent i=new Intent(ReadActivity.this,ShowActivity.class);
-                i.putExtra("name",formula.name);
-                i.putExtra("i1",formula.KVT);
-                i.putExtra("i2",formula.Oborot);
-                i.putExtra("i3",formula.i);
-                i.putExtra("i4",formula.KPD);
-                i.putExtra("i5",formula.KOEF);
-                i.putExtra("i6",formula.In);
-                i.putExtra("i7",formula.Om);
-                i.putExtra("i8",formula.Old);*/
-             /*   startActivity(i);*/
+                Steps steps=listTemp.get(position);
+                Intent i=new Intent(ListActivity.this, ShowActivity.class);
+                i.putExtra("dates",steps.dates);
+                i.putExtra("i1",steps.results_total_steps);
+                i.putExtra("i2",steps.results_total_distance);
+                i.putExtra("i3",steps.results_average_speed);
+                i.putExtra("i4",steps.results_average_frequency);
+                i.putExtra("i5",steps.results_burned_calories);
+                i.putExtra("i6",steps.results_total_moving_time);
+                startActivity(i);
             }
         });
+
+
     }
 }

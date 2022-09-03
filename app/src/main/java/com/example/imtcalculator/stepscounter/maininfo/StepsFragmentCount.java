@@ -2,6 +2,7 @@ package com.example.imtcalculator.stepscounter.maininfo;
 
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -32,6 +33,7 @@ import static android.content.Context.SENSOR_SERVICE;
 
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.stepscounter.AccelerationData;
+import com.example.imtcalculator.stepscounter.ListActivity;
 import com.example.imtcalculator.stepscounter.StepDetector;
 import com.example.imtcalculator.stepscounter.StepListener;
 import com.example.imtcalculator.stepscounter.StepType;
@@ -50,7 +52,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
             textView_pedometer_is_running, textView_pedometer_toggle_text;
 
     // Ergebnisse - Textviews
-    private TextView textview_results_total_steps, textview_results_walking_steps, textview_results_jogging_steps, textview_results_running_steps,
+    private TextView textview_results_total_steps, textview_results_walking_steps, textview_results_jogging_steps, textview_results_running_steps,transfer_to_next_page_text,
             textview_results_total_distance, textview_results_average_speed, textview_results_average_frequency, textview_results_burned_calories, textview_results_total_moving_time;
 
     // ViewModel - speichert alle relevanten Daten hier. --> Gehen nicht verloren wenn
@@ -71,7 +73,16 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         cardViewToggleStepCounting = view.findViewById(R.id.btn_pedometer_toggle_tracking);
 
         textView_pedometer_toggle_text = view.findViewById(R.id.textview_pedometer_toggle_text);
+        transfer_to_next_page_text=view.findViewById(R.id.transfer_to_next_page_text);
+        transfer_to_next_page_text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), ListActivity.class);
 
+                startActivity(intent);
+
+            }
+        });
         textView_amount_steps = view.findViewById(R.id.textview_amount_steps);
         textView_type_of_step = view.findViewById(R.id.textview_pedometer_type_of_step);
         textView_pedometer_is_running = view.findViewById(R.id.textview_pedometer_isRunning);
@@ -125,7 +136,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                         String results_average_frequency=String.valueOf(textview_results_average_frequency.getText());
                         String results_burned_calories=  String.valueOf(textview_results_burned_calories.getText());
                         String results_total_moving_time=  String.valueOf(textview_results_total_moving_time.getText());
-                          ArrayList<Steps> arrayList=new ArrayList<>();
+                          /*ArrayList<Steps> arrayList=new ArrayList<>();*/
                         Date currentDate = new Date();
                 // Форматирование времени как "день.месяц.год"
                         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
@@ -155,6 +166,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     public void onCreate(@Nullable Bundle savedInstanceState) {
         mViewModelCounter = new ViewModelProvider(this).get(ViewModelCounter.class);
         super.onCreate(savedInstanceState);
+
     }
 
 
