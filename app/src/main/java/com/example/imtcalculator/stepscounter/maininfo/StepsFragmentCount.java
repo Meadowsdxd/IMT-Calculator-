@@ -22,7 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import static android.content.Context.SENSOR_SERVICE;
 
@@ -121,12 +125,21 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                         String results_average_frequency=String.valueOf(textview_results_average_frequency.getText());
                         String results_burned_calories=  String.valueOf(textview_results_burned_calories.getText());
                         String results_total_moving_time=  String.valueOf(textview_results_total_moving_time.getText());
-                        Steps formula=new Steps(id,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time);
-                        ArrayList<Steps> arrayList=new ArrayList<Steps>();
-                        arrayList.add(new Steps(id,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time));
-                        mDataBase.push().setValue(arrayList.get(0));
+                          ArrayList<Steps> arrayList=new ArrayList<>();
+                        Date currentDate = new Date();
+                // Форматирование времени как "день.месяц.год"
+                        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+                        String dateText = dateFormat.format(currentDate);
+                // Форматирование времени как "часы:минуты:секунды"
+                        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                        String timeText = timeFormat.format(currentDate);
+                        String dates=dateText+" "+timeText;
+                        Steps steps=new Steps(id,dates,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time);
+
+                        /*arrayList.add(new Steps(id,dates,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time));
+                       */ mDataBase.push().setValue(steps);
                         Toast.makeText(getContext(), "put in DataBase", Toast.LENGTH_LONG).show();
-                      String  key = mDataBase.child("items").push().getKey();
+
 
                     }catch(Exception e){e.printStackTrace();}
                     Toast.makeText(getContext(), "\tERROR\nCan`t put in DataBase", Toast.LENGTH_LONG).show();}
