@@ -54,7 +54,7 @@
     <string name="from_that">з цього...</string>
     <string name="walking_steps">Ходьба:</string>
     <string name="jogging_steps">Біг/швидка ходьба:</string>
-    <string name="running_steps">Виконати:</string>
+    <string name="running_steps">Спринт:</string>
     <string name="total_distance">Загальна відстань:</string>
     <string name="average_speed">Середня швидкість:</string>
     <string name="average_frequency">Частота кроків:</string>

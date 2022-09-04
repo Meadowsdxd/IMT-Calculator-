@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IMTCalculator">
         <activity
-            android:name=".ShowActivity"
+            android:name=".stepscounter.ShowActivity"
             android:exported="false" />
         <activity
             android:name=".stepscounter.ListActivity"
