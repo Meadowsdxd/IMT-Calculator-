@@ -51,12 +51,10 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     private TextView textView_amount_steps, textView_type_of_step,
             textView_pedometer_is_running, textView_pedometer_toggle_text;
 
-    // Ergebnisse - Textviews
+
     private TextView textview_results_total_steps, textview_results_walking_steps, textview_results_jogging_steps, textview_results_running_steps,transfer_to_next_page_text,
             textview_results_total_distance, textview_results_average_speed, textview_results_average_frequency, textview_results_burned_calories, textview_results_total_moving_time;
 
-    // ViewModel - speichert alle relevanten Daten hier. --> Gehen nicht verloren wenn
-    // das Fragment neu erstellt wird (Orientierung ändert sich; App im Hintergrund etc.)
     private ViewModelCounter mViewModelCounter;
 
 
@@ -136,6 +134,9 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                         String results_average_frequency=String.valueOf(textview_results_average_frequency.getText());
                         String results_burned_calories=  String.valueOf(textview_results_burned_calories.getText());
                         String results_total_moving_time=  String.valueOf(textview_results_total_moving_time.getText());
+                        String results_results_jogging_steps=  String.valueOf(textview_results_jogging_steps.getText());
+                        String results_running_steps=  String.valueOf(textview_results_running_steps.getText());
+                        String results_walking_steps=  String.valueOf(textview_results_walking_steps.getText());
                           /*ArrayList<Steps> arrayList=new ArrayList<>();*/
                         Date currentDate = new Date();
                 // Форматирование времени как "день.месяц.год"
@@ -145,15 +146,18 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                         DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
                         String timeText = timeFormat.format(currentDate);
                         String dates=dateText+" "+timeText;
-                        Steps steps=new Steps(id,dates,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time);
+                        Steps steps=new Steps(id,dates,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time,
+                                results_results_jogging_steps,results_running_steps,results_walking_steps);
 
                         /*arrayList.add(new Steps(id,dates,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time));
                        */ mDataBase.push().setValue(steps);
-                        Toast.makeText(getContext(), "put in DataBase", Toast.LENGTH_LONG).show();
+                     //   Toast.makeText(getContext(), "put in DataBase", Toast.LENGTH_LONG).show();
 
 
                     }catch(Exception e){e.printStackTrace();}
-                    Toast.makeText(getContext(), "\tERROR\nCan`t put in DataBase", Toast.LENGTH_LONG).show();}
+                   // Toast.makeText(getContext(), "\tERROR\nCan`t put in DataBase", Toast.LENGTH_LONG).show();
+                    }
+
                 else startCounting();
             }
 
@@ -249,9 +253,9 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         float hours = totalDuration / 3600;
         float minutes = (totalDuration % 3600) / 60;
         float seconds = totalDuration % 60;
-        String duration = String.format("%.0f", hours) + "год " +
-                String.format( "%.0f", minutes) + "хв " +
-                String.format( "%.0f", seconds) + "с";
+        String duration = String.format("%.0f", hours) + " год " +
+                String.format( "%.0f", minutes) + " хв " +
+                String.format( "%.0f", seconds) + " с";
         textview_results_total_moving_time.setText(duration);
 
         // Average speed:
@@ -259,7 +263,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textview_results_average_speed.setText(averageSpeed);
 
         // Average step frequency
-        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + "Кроки/хв";
+        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + " Кроки/хв";
         textview_results_average_frequency.setText(averageStepFrequency);
 
         // Calories
