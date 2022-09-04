@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.imtcalculator.R;
-import com.example.imtcalculator.ShowActivity;
 import com.example.imtcalculator.stepscounter.maininfo.Steps;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -100,6 +99,9 @@ public class ListActivity extends AppCompatActivity {
                 i.putExtra("i4",steps.results_average_frequency);
                 i.putExtra("i5",steps.results_burned_calories);
                 i.putExtra("i6",steps.results_total_moving_time);
+                i.putExtra("i7",steps.results_jogging_steps);
+                i.putExtra("i8",steps.results_running_steps);
+                i.putExtra("i9",steps.results_walking_steps);
                 startActivity(i);
             }
         });
