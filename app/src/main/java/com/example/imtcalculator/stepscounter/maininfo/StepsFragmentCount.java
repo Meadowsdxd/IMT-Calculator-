@@ -7,10 +7,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -33,6 +35,7 @@ import static android.content.Context.SENSOR_SERVICE;
 
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.stepscounter.AccelerationData;
+import com.example.imtcalculator.stepscounter.BackgroundService;
 import com.example.imtcalculator.stepscounter.ListActivity;
 import com.example.imtcalculator.stepscounter.StepDetector;
 import com.example.imtcalculator.stepscounter.StepListener;
@@ -121,8 +124,10 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         }
         cardViewToggleStepCounting.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(mViewModelCounter.isCountingSteps()) {stopCounting();
+            public void onClick(View view) {Intent intent = new Intent(getContext(), BackgroundService.class);
+                if(mViewModelCounter.isCountingSteps()) {stopCounting();getActivity().stopService(intent);
+
+
                     try{
                         final String ANDROID_ID = Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
                       /*  DatabaseReference myRef = database.getReference();*/
@@ -158,9 +163,13 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                    // Toast.makeText(getContext(), "\tERROR\nCan`t put in DataBase", Toast.LENGTH_LONG).show();
                     }
 
-                else startCounting();
+                else {startCounting();   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    ContextCompat.startForegroundService(getContext(), intent);
+                } else {
+                    getActivity().startService(intent);
+                }
             }
-
+            }
         });
         return view;
     }
@@ -282,9 +291,11 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     }
 
 
-    private void startCounting(){
+    public void startCounting(){
         if(!mViewModelCounter.isCountingSteps()){
             try {
+
+
                 resetUI();
                 mViewModelCounter.getSensorManager().registerListener(this, mViewModelCounter.getAccelerationSensor(), SensorManager.SENSOR_DELAY_NORMAL);
                 mViewModelCounter.setCountingSteps(true);
@@ -298,7 +309,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     }
 
 
-    private void stopCounting(){
+    public void stopCounting(){
         if(mViewModelCounter.isCountingSteps()){
             try {
 
