@@ -44,7 +44,6 @@ public class ListActivity extends AppCompatActivity {
         listView = findViewById(R.id.list);
         listData = new ArrayList<>();
         listTemp = new ArrayList<>();
-
         final String ANDROID_ID = Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listTemp);
         listView.setAdapter(adapter);

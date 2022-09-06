@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.imtcalculator.R;
-import com.example.imtcalculator.more.Card;
 
 public class MyCardAdapter extends RecyclerView.Adapter<MyCardAdapter.ViewHolder> {
     MyCardData[] myCardData;
@@ -61,8 +59,8 @@ public class MyCardAdapter extends RecyclerView.Adapter<MyCardAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             movieImage = itemView.findViewById(R.id.imageview);
-            textViewName = itemView.findViewById(R.id.textName);
-            textViewDate = itemView.findViewById(R.id.textdate);
+            textViewName = itemView.findViewById(R.id.textViewDates);
+            textViewDate = itemView.findViewById(R.id.textViewResults_total_steps);
 
         }
     }

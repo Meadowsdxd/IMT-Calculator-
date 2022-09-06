@@ -1,20 +1,23 @@
 package com.example.imtcalculator.activity;
 
+import android.os.Bundle;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.fragment.MainFragment;
-import com.example.imtcalculator.stepscounter.maininfo.StepsFragmentCount;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.imtcalculator.stepscounter.StepsFragmentCount;
+
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cjh.WaveProgressBarlibrary.WaveProgressBar;
+
 
 public class MainActivity extends AppCompatActivity {
 private ViewPager pager;
@@ -29,6 +32,7 @@ private ViewPager pager;
         pager = findViewById(R.id.pager);
         adapter = new Slider(getSupportFragmentManager(), list);
         pager.setAdapter(adapter);
+
 
     }
 }

@@ -257,7 +257,7 @@
                 android:layout_height="50sp"
                 android:layout_below="@+id/weight"
                 android:layout_marginStart="23dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="22dp"
                 android:layout_toEndOf="@+id/textView"
                 android:textColor="@color/white"
                 android:textSize="24sp" />
@@ -267,7 +267,6 @@
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/weight"
-                android:layout_marginStart="13dp"
 
                 android:layout_marginTop="16dp"
                 android:layout_toEndOf="@+id/result"
