@@ -397,25 +397,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="375dp"
-                android:foreground="@drawable/glass"
-                android:foregroundGravity="center">
+                android:foregroundGravity="center"
+                android:orientation="vertical">
 
-                <uk.co.barbuzz.beerprogressview.BeerProgressView
-                    android:id="@+id/beerProgressView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="98dp"
-                    android:layout_marginTop="30dp"
-
-                    android:layout_marginRight="94dp"
-                    android:layout_marginBottom="63dp"
-                    android:foregroundGravity="top|fill"
-                    app:beerColor="#00BCD4"
-                    app:beerProgress="100"
-                    app:bubbleColor="#FFFFFF"
-                    app:bubbleCount="12"
-                    app:waveAmplitude="3dp"
-                    app:waveMax="100" />
+                <cjh.WaveProgressBarlibrary.WaveProgressBar
+                    android:id="@+id/waveProgressbar"
+                    android:layout_width="360dp"
+                    android:layout_height="360dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    app:cavans_bg="#2EACE4"
+                    app:progress="30"
+                    app:shape="circle"
+                    app:arc_color="#FFE0E0E0"
+                    app:text_size="20sp" />
 
             </LinearLayout>
 

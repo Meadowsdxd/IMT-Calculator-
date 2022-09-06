@@ -1,7 +1,9 @@
-package com.example.imtcalculator.stepscounter.maininfo;
+package com.example.imtcalculator.stepscounter;
 
 import androidx.cardview.widget.CardView;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -21,27 +23,37 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 
 import static android.content.Context.SENSOR_SERVICE;
 
 import com.example.imtcalculator.R;
-import com.example.imtcalculator.stepscounter.AccelerationData;
-import com.example.imtcalculator.stepscounter.BackgroundService;
-import com.example.imtcalculator.stepscounter.ListActivity;
-import com.example.imtcalculator.stepscounter.StepDetector;
-import com.example.imtcalculator.stepscounter.StepListener;
-import com.example.imtcalculator.stepscounter.StepType;
+import com.example.imtcalculator.stepscounter.maininfo.AccelerationData;
+import com.example.imtcalculator.stepscounter.maininfo.BackgroundService;
+import com.example.imtcalculator.stepscounter.maininfo.StepListener;
+import com.example.imtcalculator.stepscounter.maininfo.StepType;
+import com.example.imtcalculator.stepscounter.maininfo.Steps;
+import com.example.imtcalculator.stepscounter.maininfo.ViewModelCounter;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import cjh.WaveProgressBarlibrary.WaveProgressBar;
+
 
 public class StepsFragmentCount extends Fragment implements StepListener,SensorEventListener  {
 
@@ -59,7 +71,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
             textview_results_total_distance, textview_results_average_speed, textview_results_average_frequency, textview_results_burned_calories, textview_results_total_moving_time;
 
     private ViewModelCounter mViewModelCounter;
-
+    WaveProgressBar waveProgressBar;
 
     public static StepsFragmentCount newInstance() {
         return new StepsFragmentCount();
@@ -87,6 +99,9 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textView_amount_steps = view.findViewById(R.id.textview_amount_steps);
         textView_type_of_step = view.findViewById(R.id.textview_pedometer_type_of_step);
         textView_pedometer_is_running = view.findViewById(R.id.textview_pedometer_isRunning);
+
+         waveProgressBar=view.findViewById(R.id.waveProgressbar);
+
 
         textview_results_total_steps = view.findViewById(R.id.textview_results_total_steps);
         textview_results_walking_steps = view.findViewById(R.id.textview_results_walking_steps);
@@ -122,6 +137,8 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
             textView_amount_steps.setText(String.valueOf(mViewModelCounter.getAmountOfSteps()));
             mViewModelCounter.getSensorManager().registerListener(this, mViewModelCounter.getAccelerationSensor(), SensorManager.SENSOR_DELAY_NORMAL);
         }
+        init();
+        Glasses();
         cardViewToggleStepCounting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {Intent intent = new Intent(getContext(), BackgroundService.class);
@@ -148,7 +165,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
                         String dateText = dateFormat.format(currentDate);
                 // Форматирование времени как "часы:минуты:секунды"
-                        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+                        DateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
                         String timeText = timeFormat.format(currentDate);
                         String dates=dateText+" "+timeText;
                         Steps steps=new Steps(id,dates,results_total_steps,results_total_distance,results_average_speed,results_average_frequency,results_burned_calories,results_total_moving_time,
@@ -173,7 +190,30 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         });
         return view;
     }
+    private float mBorderRadius;// = dp2px(2);
+    private float mHaftBorderRadius = mBorderRadius / 2;
+    private float mAngularVelocity = 2.0f;
+    private float mBeerProgressHeight = 50;
+    private int mBorderWidth;// = dp2px(3);
+    private int mBeerWidth;
+    private int mBeerHeight;
 
+    private int mAngle = 0;
+    private int mMax = 100;
+    private int mBeerProgress = 0;
+    private int mBubbleCount;
+    public void setBeerProgress(int beerProgress,View view) {
+        mBeerProgress = beerProgress;
+        if (mBeerProgress > mMax){
+            mBeerProgress = mMax;
+        }
+        if (mBeerProgress < 0){
+            mBeerProgress = 0;
+        }
+        float pecent = mBeerProgress * 1.0f / mMax;
+        mBeerProgressHeight = pecent * mBeerHeight;
+     view.invalidate();
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -255,7 +295,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textview_results_running_steps.setText(String.valueOf(runningSteps));
 
         float totalDistance = walkingSteps * 0.5f + joggingSteps * 1.0f + runningSteps * 1.5f;
-        String distance = totalDistance + " v";
+        String distance = totalDistance + " м";
         textview_results_total_distance.setText(distance);
 
         float totalDuration = walkingSteps * 1.0f + joggingSteps * 0.75f + runningSteps * 0.5f;
@@ -268,16 +308,16 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         textview_results_total_moving_time.setText(duration);
 
         // Average speed:
-        String averageSpeed = String.format( "%.2f", totalDistance / totalDuration) + " м/с";
+        String averageSpeed = String.format( "%.0f", totalDistance / totalDuration) + " м/с";
         textview_results_average_speed.setText(averageSpeed);
 
         // Average step frequency
-        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + " Кроки/хв";
+        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + " rроки/хв";
         textview_results_average_frequency.setText(averageStepFrequency);
 
         // Calories
         float totalCaloriesBurned = walkingSteps + 0.05f + joggingSteps * 0.1f + runningSteps * 0.2f;
-        String totalCalories = String.format("%.0f", totalCaloriesBurned) + " Калорії";
+        String totalCalories = String.format("%.0f", totalCaloriesBurned) + " rалорії";
         textview_results_burned_calories.setText(totalCalories);
     }
 
@@ -326,6 +366,70 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
             }
         }
     }
+
+    public ArrayAdapter<Steps> adapter;
+    private List<String> listData;
+    private List<Steps> listTemp;
+    DatabaseReference myRef;
+    private void init() {
+
+        listData = new ArrayList<>();
+        listTemp = new ArrayList<>();
+        final String ANDROID_ID = Settings.Secure.getString(getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference(ANDROID_ID);
+        getDataFromDB();
+
+
+
+    }
+    private void getDataFromDB() {
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (listData.size() > 0) listData.clear();
+                if (listTemp.size() > 0) listData.clear();
+
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Steps formula = ds.getValue(Steps.class);
+                    assert formula != null;
+
+                    listData.add(formula.results_total_steps);
+
+                    listTemp.add(formula);
+                    textview_results_total_steps.setText(formula.results_total_steps);
+                    textview_results_total_distance.setText(formula.results_total_distance);
+                    textview_results_average_speed.setText(formula.results_average_speed);
+                    textview_results_average_frequency.setText(formula.results_average_frequency);
+                    textview_results_burned_calories.setText(formula.results_burned_calories);
+                    textview_results_total_moving_time.setText(formula.results_total_moving_time);
+                    textview_results_jogging_steps.setText(formula.results_jogging_steps);
+                    textview_results_running_steps.setText(formula.results_running_steps);
+                    textview_results_walking_steps.setText(formula.results_total_steps);
+                    textview_results_burned_calories.setText(formula.results_burned_calories);
+                    textview_results_total_moving_time.setText(formula.results_total_moving_time);
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+
+        myRef.addValueEventListener(eventListener);
+    }
+
+private void Glasses(){
+    waveProgressBar.setProgress(50);
+    waveProgressBar.setWaveDuration(100);
+    waveProgressBar.setBorderColor(R.color.blue);
+
+
+}
 
 
 }
