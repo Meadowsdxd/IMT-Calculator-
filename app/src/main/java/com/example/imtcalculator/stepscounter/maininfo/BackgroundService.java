@@ -1,11 +1,10 @@
-package com.example.imtcalculator.stepscounter;
+package com.example.imtcalculator.stepscounter.maininfo;
 
 import static androidx.core.app.NotificationCompat.PRIORITY_MIN;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -16,10 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
 
 import com.example.imtcalculator.R;
-import com.example.imtcalculator.stepscounter.maininfo.StepsFragmentCount;
+import com.example.imtcalculator.stepscounter.StepsFragmentCount;
 
 
 public class BackgroundService extends Service {

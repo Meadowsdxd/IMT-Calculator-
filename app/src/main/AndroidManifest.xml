@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".stepscounter.BackgroundService"
+            android:name=".stepscounter.maininfo.BackgroundService"
             android:enabled="true"
             android:exported="true" >
         </service>
