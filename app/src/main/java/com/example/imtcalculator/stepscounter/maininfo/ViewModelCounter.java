@@ -3,9 +3,6 @@ package com.example.imtcalculator.stepscounter.maininfo;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 
-import androidx.lifecycle.ViewModel;
-
-import com.example.imtcalculator.stepscounter.AccelerationData;
 import com.example.imtcalculator.stepscounter.StepDetector;
 
 

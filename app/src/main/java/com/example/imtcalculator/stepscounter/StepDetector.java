@@ -2,6 +2,10 @@ package com.example.imtcalculator.stepscounter;
 
 import android.os.SystemClock;
 
+import com.example.imtcalculator.stepscounter.maininfo.AccelerationData;
+import com.example.imtcalculator.stepscounter.maininfo.StepListener;
+import com.example.imtcalculator.stepscounter.maininfo.StepType;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

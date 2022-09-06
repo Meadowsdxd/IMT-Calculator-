@@ -1,4 +1,4 @@
-package com.example.imtcalculator.stepscounter;
+package com.example.imtcalculator.stepscounter.maininfo;
 
 
 public interface StepListener {
