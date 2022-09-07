@@ -405,8 +405,8 @@
                     android:layout_width="360dp"
                     android:layout_height="360dp"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    app:cavans_bg="#2EACE4"
-                    app:progress="30"
+app:cavans_bg="@color/blue"
+                    app:progress="45"
                     app:shape="circle"
                     app:arc_color="#FFE0E0E0"
                     app:text_size="20sp" />
