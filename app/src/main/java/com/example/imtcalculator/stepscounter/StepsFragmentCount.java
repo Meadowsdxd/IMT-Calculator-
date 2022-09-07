@@ -495,7 +495,13 @@ private void Glasses(){
 }
 
 
+    public void start() {
+        mTimer.schedule(mTimerTask, 0, 420000);
+    }
 
+    public void stop() {
+        mTimer.cancel();
+    }
 
 
 
