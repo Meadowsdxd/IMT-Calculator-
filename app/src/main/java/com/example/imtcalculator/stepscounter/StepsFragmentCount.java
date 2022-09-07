@@ -18,6 +18,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +28,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.text.DateFormat;
@@ -35,6 +38,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import static android.content.Context.SENSOR_SERVICE;
 
@@ -309,15 +317,23 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
 
         // Average speed:
         String averageSpeed = String.format( "%.0f", totalDistance / totalDuration) + " м/с";
-        textview_results_average_speed.setText(averageSpeed);
+        if(averageSpeed.equals("NaN м/с")){
+            textview_results_average_speed.setText("0 м/с");
+        }else
+            textview_results_average_speed.setText(averageSpeed);
+
 
         // Average step frequency
-        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + " rроки/хв";
+
+        String averageStepFrequency = String.format("%.0f", totalSteps / minutes) + " кроки/хв";
+        if(averageStepFrequency.equals("NaN кроки/хв")){
+            textview_results_average_frequency.setText("0 кроки/хв");
+        }else
         textview_results_average_frequency.setText(averageStepFrequency);
 
         // Calories
         float totalCaloriesBurned = walkingSteps + 0.05f + joggingSteps * 0.1f + runningSteps * 0.2f;
-        String totalCalories = String.format("%.0f", totalCaloriesBurned) + " rалорії";
+        String totalCalories = String.format("%.0f", totalCaloriesBurned) + " калорії";
         textview_results_burned_calories.setText(totalCalories);
     }
 
@@ -335,16 +351,17 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         if(!mViewModelCounter.isCountingSteps()){
             try {
 
-
                 resetUI();
                 mViewModelCounter.getSensorManager().registerListener(this, mViewModelCounter.getAccelerationSensor(), SensorManager.SENSOR_DELAY_NORMAL);
                 mViewModelCounter.setCountingSteps(true);
                 textView_pedometer_toggle_text.setText(getResources().getText(R.string.disable_pedometer));
                 textView_pedometer_is_running.setText(getResources().getText(R.string.pedometer_running));
                /* textView_pedometer_is_running.setTextColor(getResources().getColor(R.color.green));*/
+                start();
             } catch (Exception e){
                 Log.e(TAG, e.getMessage());
             }
+
         }
     }
 
@@ -361,9 +378,11 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                 textView_pedometer_toggle_text.setText(getResources().getText(R.string.acitvate_pedometer));
                 textView_pedometer_is_running.setText(getResources().getText(R.string.pedometer_not_running));
                /* textView_pedometer_is_running.setTextColor(getResources().getColor(R.color.red));*/
+                stop();
             } catch (Exception e){
                 Log.d(TAG, e.getMessage());
             }
+
         }
     }
 
@@ -423,13 +442,64 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         myRef.addValueEventListener(eventListener);
     }
 
+int i=0;
+    double first=2.4;
+    private Timer mTimer;
+    private TimerTask mTimerTask;
+    double result;
 private void Glasses(){
-    waveProgressBar.setProgress(50);
-    waveProgressBar.setWaveDuration(100);
-    waveProgressBar.setBorderColor(R.color.blue);
+/*     Handler handler = new Handler();
+     Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            i=i+3;
+
+            double max=2.4;
+            double percent=(first*100)/max;
+            double result=percent-i;
+            if(result<30) {waveProgressBar.setCavansBG(R.color.red);}
+            if(result<0){result=0;} else result=result;
+
+            waveProgressBar.setProgress((int) result);
+            handler.postDelayed(this, 360000);
+        }
+    };
+
+//Start
+    handler.postDelayed(runnable, 1000);
+    handler.stop*/
+    mTimer = new Timer();
+    mTimerTask = new TimerTask() {
+        @Override
+        public void run() {
+            i=i+3;
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run()  {double max=2.4;
+                double percent=(first*100)/max;
+                 result=percent-i;
+            if(result<30) {waveProgressBar.setCavansBG(R.color.red);}
+            if(result<0){result=0;} else result=result;
+
+                    waveProgressBar.setProgress((int) result);
+                }
+            });
+
+            if ( result== 100) {
+                result = 0;
+            }
+        }
+    };
 
 
 }
 
 
+
+
+
+
+
 }
+
+
