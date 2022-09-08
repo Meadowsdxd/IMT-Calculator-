@@ -396,45 +396,68 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:foregroundGravity="center">
+
+                <EditText
+                    android:layout_width="244dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="18dp"
+                    android:hint="Води випито сьогодні в л."
+                    android:inputType="numberDecimal" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/add"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="7dp"
+                    android:text="OK" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="353dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:foregroundGravity="center">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/firstml"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="7dp"
+                    android:text="0.25l" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/secondml"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="7dp"
+                    android:text="0.33l" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/thirdml"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="7dp"
+                    android:text="0.5l" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/ffortml"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="75dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="7dp"
+                    android:text="1l" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="438dp"
                 android:foregroundGravity="center"
                 android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="384dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:foregroundGravity="center">
-
-                    <Button
-                        android:id="@+id/firstml"
-                        android:layout_width="75dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="0.25l" />
-
-                    <Button
-                        android:id="@+id/secondml"
-                        android:layout_width="75dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="0.33l" />
-
-                    <Button
-                        android:id="@+id/thirdml"
-                        android:layout_width="75dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="0.5l" />
-
-                    <Button
-                        android:id="@+id/ffortml"
-                        android:layout_width="75dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="1l" />
-
-                </LinearLayout>
 
                 <cjh.WaveProgressBarlibrary.WaveProgressBar
                     android:id="@+id/waveProgressbar"

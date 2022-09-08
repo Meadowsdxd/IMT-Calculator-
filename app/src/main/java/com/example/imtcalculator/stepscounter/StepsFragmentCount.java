@@ -94,8 +94,8 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         cardViewToggleStepCounting = view.findViewById(R.id.btn_pedometer_toggle_tracking);
 
         textView_pedometer_toggle_text = view.findViewById(R.id.textview_pedometer_toggle_text);
-        transfer_to_next_page_text=view.findViewById(R.id.transfer_to_next_page_text);
-        transfer_to_next_page_text.setOnClickListener(new View.OnClickListener() {
+       transfer_to_next_page_text=view.findViewById(R.id.transfer_to_next_page_text);
+       transfer_to_next_page_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(), ListActivity.class);
