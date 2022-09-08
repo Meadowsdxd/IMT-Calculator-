@@ -396,19 +396,55 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="375dp"
+                android:layout_height="438dp"
                 android:foregroundGravity="center"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="384dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:foregroundGravity="center">
+
+                    <Button
+                        android:id="@+id/firstml"
+                        android:layout_width="75dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="0.25l" />
+
+                    <Button
+                        android:id="@+id/secondml"
+                        android:layout_width="75dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="0.33l" />
+
+                    <Button
+                        android:id="@+id/thirdml"
+                        android:layout_width="75dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="0.5l" />
+
+                    <Button
+                        android:id="@+id/ffortml"
+                        android:layout_width="75dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="1l" />
+
+                </LinearLayout>
 
                 <cjh.WaveProgressBarlibrary.WaveProgressBar
                     android:id="@+id/waveProgressbar"
                     android:layout_width="360dp"
                     android:layout_height="360dp"
                     android:layout_gravity="center_horizontal|center_vertical"
-app:cavans_bg="@color/blue"
+                    app:arc_color="#FFE0E0E0"
+                    app:cavans_bg="@color/blue"
                     app:progress="45"
                     app:shape="circle"
-                    app:arc_color="#FFE0E0E0"
                     app:text_size="20sp" />
 
             </LinearLayout>
