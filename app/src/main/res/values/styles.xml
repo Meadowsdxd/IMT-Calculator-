@@ -8,7 +8,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>-->
     </style>
-
+    <style name="LayoutUgli" >
+        <item name="android:radius">10dp</item>
+    </style>
     <declare-styleable name="SpeedView3">
         <attr name="android:text" format="string"/>
         <attr name="maxValue" format="integer"/>

@@ -26,7 +26,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +50,7 @@ import java.util.concurrent.TimeUnit;
 import static android.content.Context.SENSOR_SERVICE;
 
 import com.example.imtcalculator.R;
+import com.example.imtcalculator.stepscounter.glass.glasswater;
 import com.example.imtcalculator.stepscounter.maininfo.AccelerationData;
 import com.example.imtcalculator.stepscounter.maininfo.BackgroundService;
 import com.example.imtcalculator.stepscounter.maininfo.StepListener;
@@ -73,7 +77,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     private CardView cardViewToggleStepCounting;
     private TextView textView_amount_steps, textView_type_of_step,
             textView_pedometer_is_running, textView_pedometer_toggle_text;
-
+    private Button addFirstWater,addSecondWater,addThirdWater,addLastWater;
 
     private TextView textview_results_total_steps, textview_results_walking_steps, textview_results_jogging_steps, textview_results_running_steps,transfer_to_next_page_text,
             textview_results_total_distance, textview_results_average_speed, textview_results_average_frequency, textview_results_burned_calories, textview_results_total_moving_time;
@@ -84,7 +88,6 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     public static StepsFragmentCount newInstance() {
         return new StepsFragmentCount();
     }
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -110,7 +113,10 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
 
          waveProgressBar=view.findViewById(R.id.waveProgressbar);
 
-
+        addFirstWater=view.findViewById(R.id.firstml);
+        addSecondWater=view.findViewById(R.id.secondml);
+        addThirdWater=view.findViewById(R.id.thirdml);
+        addLastWater=view.findViewById(R.id.ffortml);
         textview_results_total_steps = view.findViewById(R.id.textview_results_total_steps);
         textview_results_walking_steps = view.findViewById(R.id.textview_results_walking_steps);
         textview_results_jogging_steps = view.findViewById(R.id.textview_results_jogging_steps);
@@ -146,11 +152,13 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
             mViewModelCounter.getSensorManager().registerListener(this, mViewModelCounter.getAccelerationSensor(), SensorManager.SENSOR_DELAY_NORMAL);
         }
         init();
+         glass.setFirst(1);
         Glasses();
+        start();
         cardViewToggleStepCounting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {Intent intent = new Intent(getContext(), BackgroundService.class);
-                if(mViewModelCounter.isCountingSteps()) {stopCounting();getActivity().stopService(intent);
+                if(mViewModelCounter.isCountingSteps()) {stopCounting(); requireActivity().stopService(new Intent(getActivity(),BackgroundService.class));
 
 
                     try{
@@ -188,39 +196,15 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                    // Toast.makeText(getContext(), "\tERROR\nCan`t put in DataBase", Toast.LENGTH_LONG).show();
                     }
 
-                else {startCounting();   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                else {startCounting();   /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     ContextCompat.startForegroundService(getContext(), intent);
                 } else {
                     getActivity().startService(intent);
-                }
+                }*/ requireActivity().startService(new Intent(getActivity(),BackgroundService.class));
             }
             }
         });
         return view;
-    }
-    private float mBorderRadius;// = dp2px(2);
-    private float mHaftBorderRadius = mBorderRadius / 2;
-    private float mAngularVelocity = 2.0f;
-    private float mBeerProgressHeight = 50;
-    private int mBorderWidth;// = dp2px(3);
-    private int mBeerWidth;
-    private int mBeerHeight;
-
-    private int mAngle = 0;
-    private int mMax = 100;
-    private int mBeerProgress = 0;
-    private int mBubbleCount;
-    public void setBeerProgress(int beerProgress,View view) {
-        mBeerProgress = beerProgress;
-        if (mBeerProgress > mMax){
-            mBeerProgress = mMax;
-        }
-        if (mBeerProgress < 0){
-            mBeerProgress = 0;
-        }
-        float pecent = mBeerProgress * 1.0f / mMax;
-        mBeerProgressHeight = pecent * mBeerHeight;
-     view.invalidate();
     }
 
     @Override
@@ -249,19 +233,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         mViewModelCounter.getAccelerationDataArrayList().add(new AccelerationData());
         mViewModelCounter.getStepDetector().addAccelerationData(newAccelerationData);
 
-        // Vorherige Version (jetzt in StepDetector gehandhabt):
-        /*
-        // bei 200 Millisekunden Delay ca. 5 Sekunden
-        if(mViewModel.getAccelerationDataArrayList().size() >= 25){
-            sendDataArray();
-        }*/
     }
-
-/*
-    private void sendDataArray(){
-        mViewModel.getStepDetector().handleData(mViewModel.getAccelerationDataArrayList());
-        mViewModel.getAccelerationDataArrayList().clear();
-    }*/
 
 
     @Override
@@ -357,7 +329,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                 textView_pedometer_toggle_text.setText(getResources().getText(R.string.disable_pedometer));
                 textView_pedometer_is_running.setText(getResources().getText(R.string.pedometer_running));
                /* textView_pedometer_is_running.setTextColor(getResources().getColor(R.color.green));*/
-                start();
+
             } catch (Exception e){
                 Log.e(TAG, e.getMessage());
             }
@@ -378,7 +350,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
                 textView_pedometer_toggle_text.setText(getResources().getText(R.string.acitvate_pedometer));
                 textView_pedometer_is_running.setText(getResources().getText(R.string.pedometer_not_running));
                /* textView_pedometer_is_running.setTextColor(getResources().getColor(R.color.red));*/
-                stop();
+               // stop();
             } catch (Exception e){
                 Log.d(TAG, e.getMessage());
             }
@@ -386,7 +358,7 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
         }
     }
 
-    public ArrayAdapter<Steps> adapter;
+
     private List<String> listData;
     private List<Steps> listTemp;
     DatabaseReference myRef;
@@ -443,31 +415,16 @@ public class StepsFragmentCount extends Fragment implements StepListener,SensorE
     }
 
 int i=0;
-    double first=2.4;
+    glasswater glass=new glasswater();
+
     private Timer mTimer;
     private TimerTask mTimerTask;
     double result;
+
 private void Glasses(){
-/*     Handler handler = new Handler();
-     Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            i=i+3;
+        requireActivity().startService(new Intent(getActivity(),BackgroundService.class));
 
-            double max=2.4;
-            double percent=(first*100)/max;
-            double result=percent-i;
-            if(result<30) {waveProgressBar.setCavansBG(R.color.red);}
-            if(result<0){result=0;} else result=result;
 
-            waveProgressBar.setProgress((int) result);
-            handler.postDelayed(this, 360000);
-        }
-    };
-
-//Start
-    handler.postDelayed(runnable, 1000);
-    handler.stop*/
     mTimer = new Timer();
     mTimerTask = new TimerTask() {
         @Override
@@ -475,34 +432,120 @@ private void Glasses(){
             i=i+3;
             getActivity().runOnUiThread(new Runnable() {
                 @Override
-                public void run()  {double max=2.4;
-                double percent=(first*100)/max;
-                 result=percent-i;
-            if(result<30) {waveProgressBar.setCavansBG(R.color.red);}
-            if(result<0){result=0;} else result=result;
+                public void run()  {
+                addFirstWater.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        double res=glass.getResult()+((0.25*100)/2.4);
+                        if(res>100){res=100;}
+                        glass.setResult(res);
+                       // Toast.makeText(getContext(),String.valueOf(res/100),Toast.LENGTH_SHORT).show();
+                        resetTimer();
+                        i=0;
+                        glass.setFirst((2.4*res)/100);
+                    }
+                });
+                    addSecondWater.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            double res=glass.getResult()+((0.33*100)/2.4);
+                            if(res>100){res=100;}
+                            glass.setResult(res);
+                           // Toast.makeText(getContext(),String.valueOf(res/100),Toast.LENGTH_SHORT).show();
+                            resetTimer();
+                            i=0;
+                            glass.setFirst((2.4*res)/100);
+                        }
+                    });
+                    addThirdWater.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            double res=glass.getResult()+((0.5*100)/2.4);
+                            if(res>100){res=100;}
+                            glass.setResult(res);
+                           // Toast.makeText(getContext(),String.valueOf(res/100),Toast.LENGTH_SHORT).show();
+                            resetTimer();
+                            i=0;
+                            glass.setFirst((2.4*res)/100);
+                        }
+                    });
+                    addLastWater.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            double res=glass.getResult()+((100)/2.4);
+                            if(res>100){res=100;}
+                            glass.setResult(res);
+                          //  Toast.makeText(getContext(),String.valueOf(res/100),Toast.LENGTH_SHORT).show();
+                            resetTimer();
+                            i=0;
+                            glass.setFirst((2.4*res)/100);
+                        }
+                    });
 
-                    waveProgressBar.setProgress((int) result);
+                double percent=((glass.getFirst())*100)/2.4;
+               // Toast.makeText(getContext(),String.valueOf(glass.getFirst()),Toast.LENGTH_LONG).show();
+                 result=percent-i;
+         //   if(result<30){waveProgressBar.setCavansBG(R.color.red);}else{waveProgressBar.setCavansBG(R.color.blue);}
+            //if(result>30){waveProgressBar.setCavansBG(R.color.blue);}
+            if(result<0){glass.setResult(0); resetTimer();} else glass.setResult(result);
+
+
+
                 }
             });
 
-            if ( result== 100) {
-                result = 0;
-            }
+
+
         }
     };
+     Handler handler = new Handler();
+    new Thread(new Runnable() {
 
+        @Override
+        public void run() {
+            while (glass.getFirst() < 100) {
 
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        waveProgressBar.setProgress((int) glass.getResult());
+
+                    }
+                });
+                try {
+                    Thread.sleep(28);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }).start();
 }
 
 
+    private CountDownTimer mCountDownTimer;
+    private static final long START_TIME_IN_MILLIS = 600000;
+    private boolean mTimerRunning;
+
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     public void start() {
         mTimer.schedule(mTimerTask, 0, 420000);
     }
 
+    private void resetTimer() {
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
+
+    }
     public void stop() {
         mTimer.cancel();
     }
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
 
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+    }
 
 
 

@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.IMTCalculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
+        MODE_NIGHT_YES
+
         <item name="colorPrimary">#2CB1DA</item>
         <item name="colorPrimaryVariant">#03A9F4</item>
         <item name="colorOnPrimary">@color/white</item>
