@@ -1,7 +1,9 @@
 package com.example.imtcalculator.activity;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.util.DisplayMetrics;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -16,8 +18,7 @@ import com.example.imtcalculator.stepscounter.StepsFragmentCount;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import cjh.WaveProgressBarlibrary.WaveProgressBar;
+import java.util.Locale;
 
 
 public class MainActivity extends AppCompatActivity {

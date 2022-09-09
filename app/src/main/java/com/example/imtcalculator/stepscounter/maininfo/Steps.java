@@ -23,6 +23,6 @@ public class Steps {
 
     @Override
     public  String toString(){
-        return  "Дата: "+dates+" Кіл. шагів:"+results_total_steps;
+        return  dates+"---->"+results_total_steps;
     }
 }

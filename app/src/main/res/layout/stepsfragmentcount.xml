@@ -2,8 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -58,7 +57,7 @@
 
                         <TextView
                             android:id="@+id/textview_amount_steps"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:textSize="22sp"
                             android:maxLines="2"
                             android:ellipsize="end"
@@ -207,7 +206,7 @@
 
                         <TextView
                             android:id="@+id/textview_results_total_steps"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:textSize="18sp"
                             android:maxLines="2"
                             android:ellipsize="end"
@@ -244,7 +243,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -264,7 +263,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -284,7 +283,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -305,7 +304,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -325,7 +324,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -345,7 +344,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -365,7 +364,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -385,7 +384,7 @@
                             android:textAlignment="textEnd"
                             android:maxLines="3"
                             android:ellipsize="end"
-                            android:text="0"
+                            android:text="@string/_0"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -405,21 +404,21 @@
                     android:layout_width="75dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="7dp"
-                    android:text="0.25l" />
+                    android:text="@string/_0_25l" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/secondml"
                     android:layout_width="75dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="7dp"
-                    android:text="0.33l" />
+                    android:text="@string/_0_33l" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/thirdml"
                     android:layout_width="75dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="7dp"
-                    android:text="0.5l" />
+                    android:text="@string/_0_5l" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ffortml"
@@ -427,7 +426,7 @@
                     android:layout_width="75dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="7dp"
-                    android:text="1l" />
+                    android:text="@string/_1l" />
 
 
             </LinearLayout>
@@ -466,7 +465,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Випито вами"
+                    android:text="@string/wasdrank"
 
                     android:textSize="18sp" />
 
@@ -477,7 +476,7 @@
                     android:layout_marginStart="16dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textAlignment="textEnd"
 
                     android:textSize="18sp" />
