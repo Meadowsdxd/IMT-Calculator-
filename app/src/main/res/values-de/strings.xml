@@ -47,7 +47,7 @@
 
     <string name="acitvate_pedometer">Schrittzähler starten</string>
     <string name="disable_pedometer">Schrittzähler stoppen</string>
-    <string name="transfer_to_next_page_text">Переглянути результати</string>
+    <string name="transfer_to_next_page_text">Überprüfen Sie die Ergebnisse</string>
     <string name="results">Ergebnisse</string>
     <string name="of_the_last_measurement">der letzten Messung</string>
     <string name="total_steps">Schritte gesamt:</string>
@@ -81,4 +81,15 @@
     <string name="kalorian">Kalorien</string>
     <string name="stepsmin">Schritte/min:</string>
     <string name="mc">m/s:</string>
+    <string name="_1l">1L</string>
+    <string name="_0_5l">0.5L</string>
+    <string name="_0_33l">0.33L</string>
+    <string name="_0_25l">0.25L</string>
+    <string name="_0">0</string>
+    <string name="wasdrank">betrunken von dir</string>
+    <string name="hours">std.</string>
+    <string name="minutes">m</string>
+    <string name="seconds">s</string>
+    <string name="totalDistance">m</string>
+    <string name="Date">Datum: </string>
 </resources>

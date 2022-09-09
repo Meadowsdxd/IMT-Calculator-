@@ -77,4 +77,15 @@
     <string name="kalorian">Calories</string>
     <string name="stepsmin">pas/min</string>
     <string name="mc">m/s:</string>
+    <string name="_1l">1L</string>
+    <string name="_0_5l">0.5L</string>
+    <string name="_0_33l">0.33L</string>
+    <string name="_0_25l">0.25L</string>
+    <string name="_0">0</string>
+    <string name="wasdrank">tu as bu de l`eau</string>
+    <string name="hours">h</string>
+    <string name="minutes">m</string>
+    <string name="seconds">s</string>
+    <string name="totalDistance">m</string>
+    <string name="Date">Date: </string>
 </resources>

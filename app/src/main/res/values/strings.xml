@@ -17,8 +17,6 @@
     <string name="no">Ні</string>
     <string name="maybe">Maybe</string>
     <string name="result">Результат</string>
-
-
     <string name="link1">ЯК ХАРЧУВАТИСЯ, ЩОБ НАБРАТИ М`ЯЗОВУ МАСУ! 7 ЗАКОНІВ</string>
     <string name="link2">10 ГОЛОВНИХ ПОМИЛОК ПРИ НАБОРІ МАСИ</string>
     <string name="link3">Фітнес клуб преміум клас</string>
@@ -34,17 +32,14 @@
     <string name="link13">Как похудеть на 30 кг. Моя история похудения. Жиросжигатель</string>
     <string name="link14">Просте схуднення. Зрештою, відчуйте контроль над їжею.</string>
     <string name="link15">Врач-диетолог, нутрициолог Эксперт системы Анализа рисков и критических точек контроля пищевой безопасности (ХАССП). Врач - эксперт высшей категории в отрасли пищевой безопасности и нутрициологии.</string>
-
     <string name="title_pedometer">Крокомір</string>
     <string name="title_acceleration">Датчик прискорення</string>
-
     <string name="pedometer">Крокомір</string>
     <string name="number_of_steps">Кількість кроків:</string>
     <string name="pedometer_running">крокомір працює</string>
     <string name="pedometer_not_running">Крокомір зупинено</string>
     <string name="type_of_step">Тип кроку:</string>
     <string name="duration_of_step">Тривалість кроку:</string>
-
     <string name="acitvate_pedometer">Запустити крокомір</string>
     <string name="disable_pedometer">Зупинити крокомір</string>
     <string name="transfer_to_next_page_text">Переглянути результати</string>
@@ -60,16 +55,14 @@
     <string name="average_frequency">Частота кроків:</string>
     <string name="burned_calories">Страчені калорії:</string>
     <string name="moving_time">Час руху:</string>
-
     <string name="walking">Ходьба</string>
     <string name="jogging">Біг підтюпцем</string>
     <string name="running">Запущено</string>
-
     <string name="live_data">Метрики в реальному часі</string>
     <string name="graph">Графік</string>
     <string name="details">Деталі</string>
-
     <string name="name">Ім`я:</string>
+
     <string name="manufacturer">Виробник:</string>
     <string name="version">Версія:</string>
     <string name="energy">Енергія:</string>
@@ -81,4 +74,15 @@
     <string name="kalorian">Калорій</string>
     <string name="stepsmin">кроків/хв:</string>
     <string name="mc">М/С:</string>
+    <string name="_1l">1Л</string>
+    <string name="_0_5l">0.5Л</string>
+    <string name="_0_33l">0.33Л</string>
+    <string name="_0_25l">0.25Л</string>
+    <string name="_0">0</string>
+    <string name="wasdrank">Випито вами</string>
+    <string name="hours">год</string>
+    <string name="minutes">хв</string>
+    <string name="seconds">с</string>
+    <string name="totalDistance">м</string>
+    <string name="Date">Дата: </string>
 </resources>
