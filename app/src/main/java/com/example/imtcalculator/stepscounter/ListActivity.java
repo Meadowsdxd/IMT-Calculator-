@@ -91,6 +91,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Steps steps=listTemp.get(position);
+                Resources resources=getResources();
                 Intent i=new Intent(ListActivity.this, ShowActivity.class);
                 i.putExtra("dates",steps.dates);
                 i.putExtra("i1",steps.results_total_steps);
@@ -98,7 +99,9 @@ public class ListActivity extends AppCompatActivity {
                 i.putExtra("i3",steps.results_average_speed);
                 i.putExtra("i4",steps.results_average_frequency);
                 i.putExtra("i5",steps.results_burned_calories);
-                i.putExtra("i6",steps.results_total_moving_time);
+                String totatime=String.format("%.0f", Float.parseFloat(steps.hours)) + " " +resources.getString(R.string.hours)+" " + String.format( "%.0f", Float.parseFloat(steps.minutes)) +  " " +resources.getString(R.string.minutes)+" " + String.format( "%.0f", Float.parseFloat(steps.seconds)) +  " " +resources.getString(R.string.seconds)+" ";
+
+                i.putExtra("i6",totatime);
                 i.putExtra("i7",steps.results_jogging_steps);
                 i.putExtra("i8",steps.results_running_steps);
                 i.putExtra("i9",steps.results_walking_steps);

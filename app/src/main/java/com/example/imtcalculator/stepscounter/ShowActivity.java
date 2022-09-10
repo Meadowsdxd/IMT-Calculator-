@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -39,7 +40,7 @@ public class ShowActivity extends AppCompatActivity {
             I7=  i.getStringExtra("i7");
             I8=  i.getStringExtra("i8");
             I9=  i.getStringExtra("i9");
-
+            Resources resources=getResources();
             textView_amount_steps = findViewById(R.id.textview_amount_steps);
             textView_type_of_step = findViewById(R.id.textview_pedometer_type_of_step);
             textView_pedometer_is_running = findViewById(R.id.textview_pedometer_isRunning);
@@ -55,10 +56,10 @@ public class ShowActivity extends AppCompatActivity {
             textview_results_total_moving_time = findViewById(R.id.textview_results_total_moving_time);
 
             textview_results_total_steps.setText(I1);
-            textview_results_total_distance.setText(I2);
-            textview_results_average_speed.setText(I3);
-            textview_results_average_frequency.setText(I4);
-            textview_results_burned_calories.setText(I5);
+            textview_results_total_distance.setText(I2+ " "+resources.getString(R.string.totalDistance));
+            textview_results_average_speed.setText(I3+ " "+resources.getString(R.string.mc));
+            textview_results_average_frequency.setText(I4+" "+ resources.getString(R.string.stepsmin));
+            textview_results_burned_calories.setText(I5+ " "+ resources.getString(R.string.kalorian));
             textview_results_total_moving_time.setText(I6);
             textview_results_walking_steps.setText(I7);
             textview_results_jogging_steps.setText(I8);
