@@ -465,14 +465,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/wasdrank"
+                    android:layout_marginStart="10dp"
 
+                    android:text="@string/wasdrank"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textview_percebt_in_l"
                     android:layout_width="50dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:ellipsize="end"
                     android:maxLines="2"
