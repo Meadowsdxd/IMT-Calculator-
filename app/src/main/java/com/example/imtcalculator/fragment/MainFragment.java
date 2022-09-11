@@ -3,6 +3,7 @@ package com.example.imtcalculator.fragment;
 import android.annotation.SuppressLint;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -21,7 +22,6 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.activity.HelperActivity;
 import com.example.imtcalculator.more.Calculation;
@@ -39,12 +39,15 @@ public class MainFragment extends Fragment {
     boolean sexCheck;
     double iniResult=0;
     Spinner spinnerHeight,spinnerWeight;
-    String[] heightSpin = { "См", "Метр", "Дюйм","Фут"};
-    String[] weightSpin = { "Кг","Фунт"};
+    String[] heightSpin;
+    String[] weightSpin;
     int heightPos,weightPos;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
+        Resources resources=getResources();
+        heightSpin = new String[]{resources.getString(R.string._SM), resources.getString(R.string._M), resources.getString(R.string._D), resources.getString(R.string._FT)};
+         weightSpin = new String[]{resources.getString(R.string._KG), resources.getString(R.string._Funt)};
 
         age = view.findViewById(R.id.age);
         weight = view.findViewById(R.id.weight);
@@ -116,10 +119,10 @@ public class MainFragment extends Fragment {
                                 case -1:
 
                                     break;
-                                case R.id.men:{sexCheck=true;transfer();   /*Toast.makeText(getContext(),"men",Toast.LENGTH_LONG).show();*/}
+                                case R.id.men:{sexCheck=true;transfer();  }
 
                                     break;
-                                case R.id.girl:{sexCheck=false; transfer();  /*Toast.makeText(getContext(),"girl",Toast.LENGTH_LONG).show();*/ }
+                                case R.id.girl:{sexCheck=false; transfer();}
 
                                     break;
 
@@ -229,10 +232,10 @@ private void Spinner1(View view){
     spinnerHeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
         public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
             switch (selectedItemPosition){
-                case 0: {heightPos=1; /*Toast.makeText(getContext(),"1",Toast.LENGTH_LONG).show();*/}break;
-                case 1:{ heightPos=2;/* Toast.makeText(getContext(),"2",Toast.LENGTH_LONG).show();*/}break;
-                case 2: {heightPos=3; /*Toast.makeText(getContext(),"3",Toast.LENGTH_LONG).show();*/}break;
-                case 3: {heightPos=4;/*Toast.makeText(getContext(),"4",Toast.LENGTH_LONG).show();*/ }break;
+                case 0: {heightPos=1; }break;
+                case 1:{ heightPos=2;}break;
+                case 2: {heightPos=3; }break;
+                case 3: {heightPos=4; }break;
 
             }}
         public void onNothingSelected(AdapterView<?> parent) {
@@ -250,8 +253,8 @@ private void Spinner1(View view){
         spinnerWeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
                 switch (selectedItemPosition){
-                    case 0:{ weightPos=1;/*Toast.makeText(getContext(),"1",Toast.LENGTH_LONG).show();*/}break;
-                    case 1:{ weightPos=2;/*Toast.makeText(getContext(),"2",Toast.LENGTH_LONG).show();*/}break;
+                    case 0:{ weightPos=1;}break;
+                    case 1:{ weightPos=2;}break;
 
 
                 }}

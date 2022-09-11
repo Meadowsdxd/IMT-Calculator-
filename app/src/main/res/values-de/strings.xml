@@ -92,4 +92,10 @@
     <string name="seconds">s</string>
     <string name="totalDistance">m</string>
     <string name="Date">Datum: </string>
+    <string name="_SM">Sm</string>
+    <string name="_M">Meter</string>
+    <string name="_D">Inch</string>
+    <string name="_FT">Fuß.</string>
+    <string name="_KG">Kg</string>
+    <string name="_Funt">Pfund</string>
 </resources>

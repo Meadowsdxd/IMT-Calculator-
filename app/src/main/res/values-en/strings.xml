@@ -87,4 +87,10 @@
     <string name="seconds">s</string>
     <string name="totalDistance">m</string>
     <string name="Date">Date: </string>
+    <string name="_SM">Sm</string>
+    <string name="_M">Meter</string>
+    <string name="_D">Inch</string>
+    <string name="_FT">Foot</string>
+    <string name="_KG">Kg</string>
+    <string name="_Funt">Funt</string>
 </resources>

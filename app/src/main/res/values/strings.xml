@@ -85,4 +85,10 @@
     <string name="seconds">с</string>
     <string name="totalDistance">м</string>
     <string name="Date">Дата: </string>
+    <string name="_SM">См</string>
+    <string name="_M">Метр</string>
+    <string name="_D">Дюйм</string>
+    <string name="_FT">Фут</string>
+    <string name="_KG">Кг</string>
+    <string name="_Funt">Фунт</string>
 </resources>

@@ -56,7 +56,6 @@ public class BackgroundService extends Service {
         super.onStartCommand(intent, flags, startId);
 
 
-        Toast.makeText(this,"start",Toast.LENGTH_LONG).show();
 
       return START_STICKY;
     }
@@ -65,7 +64,7 @@ public class BackgroundService extends Service {
     public void onDestroy() {
         super.onDestroy();
 
-        Toast.makeText(this,"stop",Toast.LENGTH_LONG).show();
+
     }
     @RequiresApi(Build.VERSION_CODES.O)
     private String createNotificationChannel(NotificationManager notificationManager){
