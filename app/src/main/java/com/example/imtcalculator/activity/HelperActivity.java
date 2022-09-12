@@ -28,7 +28,7 @@ public class HelperActivity extends AppCompatActivity{
      Bundle arguments = getIntent().getExtras();
          double result = (double) arguments.get("result");
 
-       if(result<18){ myCardData = new MyCardData[]{
+       if(result<18.5){ myCardData = new MyCardData[]{
                new MyCardData("https://www.youtube.com/watch?v=4s3QStdR-HU", R.string.link1, R.drawable.img_1),
             new MyCardData("https://www.youtube.com/watch?v=k9nlPis5u7s", R.string.link2, R.drawable.img_3),
                new MyCardData("https://gymmaxx.com", R.string.link3, R.drawable.gymaxx),

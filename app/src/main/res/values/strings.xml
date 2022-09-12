@@ -71,7 +71,7 @@
     <string name="min_range">мін. Діапазон:</string>
     <string name="accuracy">Точність:</string>
     <string name="delay">Затримка:</string>
-    <string name="kalorian">Калорій</string>
+    <string name="kalorian">калорій</string>
     <string name="stepsmin">кроків/хв:</string>
     <string name="mc">м/с:</string>
     <string name="_1l">1Л</string>
@@ -91,4 +91,5 @@
     <string name="_FT">Фут</string>
     <string name="_KG">Кг</string>
     <string name="_Funt">Фунт</string>
+    <string name="_L">Л</string>
 </resources>

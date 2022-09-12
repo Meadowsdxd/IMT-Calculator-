@@ -78,7 +78,7 @@
     <string name="min_range">min. Bereich:</string>
     <string name="accuracy">Genauigkeit:</string>
     <string name="delay">Delay:</string>
-    <string name="kalorian">Kalorien</string>
+    <string name="kalorian">kalorien</string>
     <string name="stepsmin">Schritte/min:</string>
     <string name="mc">m/s:</string>
     <string name="_1l">1L</string>
@@ -98,4 +98,5 @@
     <string name="_FT">Fuß.</string>
     <string name="_KG">Kg</string>
     <string name="_Funt">Pfund</string>
+    <string name="_L">L</string>
 </resources>

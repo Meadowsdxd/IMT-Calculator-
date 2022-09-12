@@ -64,8 +64,6 @@ public class MainFragment extends Fragment {
         men=view.findViewById(R.id.men);
         girl=view.findViewById(R.id.girl);
         nextPage=view.findViewById(R.id.button);
-    /*    men.setOnClickListener(radioButtonClickListener);
-        girl.setOnClickListener(radioButtonClickListener);*/
         age.addTextChangedListener(next);
         height.addTextChangedListener(next);
         weight.addTextChangedListener(next);
@@ -82,7 +80,7 @@ public class MainFragment extends Fragment {
 
         return view;
     }
- /*   View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
+   View.OnClickListener radioButtonClickListener = new View.OnClickListener() {
         @SuppressLint("NonConstantResourceId")
         @Override
         public void onClick(View v) {
@@ -96,7 +94,7 @@ public class MainFragment extends Fragment {
                     break;
             }
         }
-    };*/
+    };
 
 
 
@@ -111,25 +109,21 @@ public class MainFragment extends Fragment {
                     nextPage.setVisibility(View.GONE);
                 }
                 else{
-                    ra.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    ra.setOnCheckedChangeListener((group, checkedId) -> {
+                        switch (checkedId) {
+                            case -1:
 
-                        @Override
-                        public void onCheckedChanged(RadioGroup group, int checkedId) {
-                            switch (checkedId) {
-                                case -1:
+                                break;
+                            case R.id.men:{sexCheck=true;transfer();  }
 
-                                    break;
-                                case R.id.men:{sexCheck=true;transfer();  }
+                                break;
+                            case R.id.girl:{sexCheck=false; transfer();}
 
-                                    break;
-                                case R.id.girl:{sexCheck=false; transfer();}
-
-                                    break;
+                                break;
 
 
-                                default:
-                                    break;
-                            }
+                            default:
+                                break;
                         }
                     });
                     transfer();

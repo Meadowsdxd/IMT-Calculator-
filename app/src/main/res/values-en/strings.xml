@@ -73,7 +73,7 @@
     <string name="min_range">min. range:</string>
     <string name="accuracy">Accuracy:</string>
     <string name="delay">Delay:</string>
-    <string name="kalorian">Calorie</string>
+    <string name="kalorian">calories</string>
     <string name="stepsmin">steps/min:</string>
     <string name="mc">m/s:</string>
     <string name="_1l">1L</string>
@@ -81,7 +81,7 @@
     <string name="_0_33l">0.33L</string>
     <string name="_0_25l">0.25L</string>
     <string name="_0">0</string>
-    <string name="wasdrank">drank</string>
+    <string name="wasdrank">Drank</string>
     <string name="hours">h</string>
     <string name="minutes">m</string>
     <string name="seconds">s</string>
@@ -93,4 +93,5 @@
     <string name="_FT">Foot</string>
     <string name="_KG">Kg</string>
     <string name="_Funt">Funt</string>
+    <string name="_L">L</string>
 </resources>

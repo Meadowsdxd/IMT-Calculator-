@@ -419,13 +419,13 @@ private void Glasses(){
                     i=0;
                     glass.setFirst((2.4*res)/100);
                 });
-
+                Resources resources=getResources();
             double percent=((glass.getFirst())*100)/2.4;
             result=percent-i;
             if(result<0){glass.setResult(0);} else glass.setResult(result);
                 waterdrank= ((2.4*glass.getResult())/100);
                 DecimalFormat formattedDouble = new DecimalFormat("#0.00");
-                textview_percebt_in_l.setText((formattedDouble.format(waterdrank)));
+                textview_percebt_in_l.setText((formattedDouble.format(waterdrank)+" "+resources.getString(R.string._L)));
 
 
             });
@@ -436,12 +436,13 @@ private void Glasses(){
     };
      Handler handler = new Handler();
     new Thread(() -> {
+        Resources resources=getResources();
         while (glass.getFirst() < 100) {
 
             handler.post(() -> waveProgressBar.setProgress((int) glass.getResult()));
             waterdrank= ((2.4*glass.getResult())/100);
             DecimalFormat formattedDouble = new DecimalFormat("#0.00");
-            textview_percebt_in_l.setText((formattedDouble.format(waterdrank)));
+            textview_percebt_in_l.setText((formattedDouble.format(waterdrank)+" "+resources.getString(R.string._L)));
             try {
                 Thread.sleep(28);
             } catch (InterruptedException e) {
