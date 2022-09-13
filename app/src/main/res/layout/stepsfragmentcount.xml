@@ -397,40 +397,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:foregroundGravity="center">
+                android:layout_marginEnd="30dp"
+                android:gravity="center_horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/firstml"
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginEnd="2dp"
                     android:text="@string/_0_25l" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/secondml"
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginEnd="2dp"
                     android:text="@string/_0_33l" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/thirdml"
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginEnd="2dp"
                     android:text="@string/_0_5l" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ffortml"
                     style="@style/Widget.AppCompat.Button"
-                    android:layout_width="75dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="7dp"
-                    android:layout_marginEnd="7dp"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="9dp"
+                    android:layout_marginEnd="2dp"
                     android:text="@string/_1l" />
 
 
@@ -470,17 +470,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginStart="40dp"
 
                     android:text="@string/wasdrank"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textview_percebt_in_l"
-                    android:layout_width="50dp"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="80dp"
-                    android:ellipsize="end"
+                    android:layout_marginStart="30dp"
+                    android:ellipsize="middle"
                     android:maxLines="2"
                     android:text="@string/_0"
                     android:textAlignment="textEnd"
