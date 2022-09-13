@@ -268,10 +268,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/weight"
 
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginTop="21dp"
                 android:layout_toEndOf="@+id/result"
                 android:background="#00FFFFFF"
-                android:foreground="@drawable/ask"
+                android:foreground="@drawable/help"
                 android:visibility="visible" />
         </RelativeLayout>
 
