@@ -1,4 +1,4 @@
-# IMT Calculator Cheat Sheet
+# IMT Calculator Readme
 
 
 
