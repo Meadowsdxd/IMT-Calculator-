@@ -12,7 +12,6 @@ Upon launch, we are greeted by the first window of the calculator itself, where 
 <table>
   <tr>
     <td><img src="IMT-Calculator-\app\src\main\res\drawable-v24\screen\firstFragment.png"></td>
-    <td><img src="img/1.jpg"></td>
   </tr>
 </table>
 
