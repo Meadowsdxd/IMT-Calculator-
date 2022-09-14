@@ -11,7 +11,7 @@
 Upon launch, we are greeted by the first window of the calculator itself, where we can see 3 data text fields, gender selection and measurement system selection.
 <table>
   <tr>
-    <td><img src="IMT-Calculator-\app\src\main\res\drawable-v24\screen\firstFragment.png"></td>
+    <td><img src="app\src\main\res\drawable-v24\screen\firstFragment.png"></td>
   </tr>
 </table>
 
