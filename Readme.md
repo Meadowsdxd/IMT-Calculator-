@@ -9,7 +9,13 @@
 
 ### 3. First Activity
 Upon launch, we are greeted by the first window of the calculator itself, where we can see 3 data text fields, gender selection and measurement system selection.
-<img height="100dp" src="img/1.jpg" width="100dp"/>
+<table>
+  <tr>
+    <td><img src="IMT-Calculator-\app\src\main\res\drawable-v24\screen\firstFragment.png"></td>
+    <td><img src="img/1.jpg"></td>
+  </tr>
+</table>
+
 > File code: MainFragment.java 
 
 ### 4. Логика
