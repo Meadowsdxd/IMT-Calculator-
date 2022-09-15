@@ -1,12 +1,10 @@
 package com.example.imtcalculator.fragment;
 
 import android.annotation.SuppressLint;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -19,9 +17,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
 import com.example.imtcalculator.R;
 import com.example.imtcalculator.activity.HelperActivity;
 import com.example.imtcalculator.more.Calculation;
